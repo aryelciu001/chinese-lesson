@@ -31,7 +31,8 @@ Output three separate sections in this exact order:
 - Each section must contain the same number of lines/exchanges
 - Label each speaker consistently (e.g. A: / B:)
 - Conversation should be 6–10 lines total (3–5 exchanges)
-- Vocabulary and grammar should match intermediate level (HSK 3–4)
+- Vocabulary and grammar should match advanced level (HSK 4–6)
+- Do not use any idioms, unless it is appropriate. the goal of the study is to have conversational skill
 - Topic is provided as the skill argument — use it as the setting or subject of the conversation
 - Write the skill output in English (labels, section headers), Chinese for the content
 - write the conversation to /scenarios folder. name it in english. no output on terminal

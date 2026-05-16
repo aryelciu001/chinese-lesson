@@ -26,7 +26,7 @@ def render_html(scenario_name, words, show_pinyin, show_translation):
 
     def render_word(w):
         if w["hanzi"] == "\n":
-            return '<br>'
+            return "<br>"
         return f"""<span class="word"><span class="pinyin">{w["pinyin"]}</span><span class="hanzi">{w["hanzi"]}</span><span class="translation">{w["translation"]}</span></span>"""
 
     cards_html = "".join(render_word(w) for w in words)
@@ -42,7 +42,8 @@ def render_html(scenario_name, words, show_pinyin, show_translation):
 <title>Chinese Lesson</title>
 <style>
   * {{ box-sizing: border-box; margin: 0; padding: 0; }}
-  body {{ font-family: sans-serif; background: #f5f5f5; padding: 24px; line-height: 1; }}
+  body {{ font-family: sans-serif; background: #f5f5f5; padding: 24px; line-height: 1; width: 100%; }}
+  .container {{ max-width: 800px; margin: 0 auto; }}
   header {{ display: flex; align-items: center; gap: 16px; flex-wrap: wrap; margin-bottom: 32px; }}
   select {{ font-size: 14px; padding: 6px 10px; border-radius: 6px; border: 1px solid #ccc; }}
   button {{ font-size: 14px; padding: 6px 14px; border-radius: 6px; border: 1px solid #ccc; background: white; cursor: pointer; }}
@@ -55,18 +56,26 @@ def render_html(scenario_name, words, show_pinyin, show_translation):
     display: inline-flex;
     flex-direction: column;
     align-items: center;
-    margin: 0 4px 16px;
+    margin: 0 3px 8px;
     vertical-align: bottom;
   }}
   .hanzi {{ font-size: 28px; font-weight: bold; color: #111; }}
-  .pinyin {{ font-size: 12px; color: #e07b00; min-height: 16px; margin-bottom: 2px; visibility: hidden; }}
-  .translation {{ font-size: 11px; color: #888; min-height: 14px; margin-top: 2px; white-space: nowrap; visibility: hidden; }}
-  .word:hover .pinyin, .word:hover .translation {{ visibility: visible; }}
-  .show-pinyin .pinyin {{ visibility: visible; }}
-  .show-translation .translation {{ visibility: visible; }}
+  .pinyin {{ display: none; font-size: 12px; color: #e07b00; margin-bottom: 2px; }}
+  .translation {{ display: none; font-size: 11px; color: #888; margin-top: 2px; white-space: nowrap; }}
+  .show-pinyin .pinyin {{ display: block; }}
+  .show-translation .translation {{ display: block; }}
+  .word {{ cursor: pointer; border: 1px solid #ddd; border-radius: 6px; padding: 4px 6px; background: white; }}
+  .word:hover {{ border-color: #bbb; background: #fafafa; }}
+  .popup-overlay {{ display: none; position: fixed; inset: 0; background: rgba(0,0,0,0.3); z-index: 100; }}
+  .popup-overlay.open {{ display: flex; align-items: center; justify-content: center; }}
+  .popup {{ background: white; border-radius: 12px; padding: 28px 36px; text-align: center; box-shadow: 0 8px 32px rgba(0,0,0,0.18); min-width: 200px; }}
+  .popup-hanzi {{ font-size: 48px; font-weight: bold; color: #111; }}
+  .popup-pinyin {{ font-size: 18px; color: #e07b00; margin-top: 8px; }}
+  .popup-translation {{ font-size: 14px; color: #555; margin-top: 8px; }}
 </style>
 </head>
 <body>
+<div class="container">
 <header>
   <form method="get" action="/">
     <select name="scenario" onchange="this.form.submit()">
@@ -84,8 +93,17 @@ def render_html(scenario_name, words, show_pinyin, show_translation):
   <button id="btn-read">▶ Play</button>
 </header>
 <audio id="audio" src="/audio/{scenario_name}.m4a"></audio>
+<div class="popup-overlay" id="overlay">
+  <div class="popup">
+    <div class="popup-hanzi" id="popup-hanzi"></div>
+    <div class="popup-pinyin" id="popup-pinyin"></div>
+    <div class="popup-translation" id="popup-translation"></div>
+    <button id="popup-speak" style="margin-top:16px; font-size:18px; padding:6px 16px;">🔊</button>
+  </div>
+</div>
 <div class="text">
 {cards_html}
+</div>
 </div>
 <script>
   const text = document.querySelector('.text');
@@ -96,6 +114,27 @@ def render_html(scenario_name, words, show_pinyin, show_translation):
   document.getElementById('toggle-pinyin').addEventListener('change', apply);
   document.getElementById('toggle-translation').addEventListener('change', apply);
   apply();
+
+  const overlay = document.getElementById('overlay');
+  document.querySelectorAll('.word').forEach(word => {{
+    word.addEventListener('click', () => {{
+      document.getElementById('popup-hanzi').textContent = word.querySelector('.hanzi').textContent;
+      document.getElementById('popup-pinyin').textContent = word.querySelector('.pinyin').textContent;
+      document.getElementById('popup-translation').textContent = word.querySelector('.translation').textContent;
+      overlay.classList.add('open');
+    }});
+  }});
+  overlay.addEventListener('click', e => {{
+    if (!e.target.closest('.popup')) overlay.classList.remove('open');
+  }});
+  document.getElementById('popup-speak').addEventListener('click', () => {{
+    const hanzi = document.getElementById('popup-hanzi').textContent;
+    const utt = new SpeechSynthesisUtterance(hanzi);
+    utt.lang = 'zh-CN';
+    utt.rate = 0.8;
+    speechSynthesis.cancel();
+    speechSynthesis.speak(utt);
+  }});
 
   const audio = document.getElementById('audio');
   const btn = document.getElementById('btn-read');
