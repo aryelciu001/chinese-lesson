@@ -53,3 +53,10 @@
 1. WiFi密码是多少？— WiFi mìmǎ shì duōshǎo? — What's the WiFi password?
 2. 请不要把密码告诉别人。— Qǐng bù yào bǎ mìmǎ gàosù biérén. — Please don't tell anyone your password.
 3. 他忘记了银行卡密码，只好去柜台办理重置手续。— Tā wàngjì le yínhángkǎ mìmǎ, zhǐhǎo qù guìtái bànlǐ chóngzhì shǒuxù. — He forgot his bank card PIN and had to go to the counter to reset it.
+
+## 报告 (bàogào)
+
+**Examples:**
+1. 我要写报告。— Wǒ yào xiě bàogào. — I need to write a report.
+2. 他向老板汇报了工作报告。— Tā xiàng lǎobǎn huìbào le gōngzuò bàogào. — He submitted the work report to the boss.
+3. 经理要求每周五提交一份详细的销售报告。— Jīnglǐ yāoqiú měi zhōuwǔ tíjiāo yī fèn xiángxì de xiāoshòu bàogào. — The manager requires a detailed sales report to be submitted every Friday.

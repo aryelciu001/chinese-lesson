@@ -48,7 +48,6 @@ def render_html(scenario_name, words, show_pinyin, show_translation):
   select {{ font-size: 14px; padding: 6px 10px; border-radius: 6px; border: 1px solid #ccc; }}
   button {{ font-size: 14px; padding: 6px 14px; border-radius: 6px; border: 1px solid #ccc; background: white; cursor: pointer; }}
   button:hover {{ background: #f0f0f0; }}
-  button.playing {{ background: #fff3e0; border-color: #e07b00; color: #e07b00; }}
   .toggles {{ display: flex; gap: 16px; }}
   label {{ display: flex; align-items: center; gap: 6px; font-size: 14px; cursor: pointer; user-select: none; }}
   .text {{ font-size: 0; line-height: 1; }}
@@ -90,9 +89,8 @@ def render_html(scenario_name, words, show_pinyin, show_translation):
       <input type="checkbox" id="toggle-translation" {trans_checked}> Translation
     </label>
   </div>
-  <button id="btn-read">▶ Play</button>
+  <audio controls src="/audio/{scenario_name}.m4a"></audio>
 </header>
-<audio id="audio" src="/audio/{scenario_name}.m4a"></audio>
 <div class="popup-overlay" id="overlay">
   <div class="popup">
     <div class="popup-hanzi" id="popup-hanzi"></div>
@@ -136,24 +134,6 @@ def render_html(scenario_name, words, show_pinyin, show_translation):
     speechSynthesis.speak(utt);
   }});
 
-  const audio = document.getElementById('audio');
-  const btn = document.getElementById('btn-read');
-  btn.addEventListener('click', () => {{
-    if (audio.paused) {{
-      audio.play();
-      btn.textContent = '■ Pause';
-      btn.classList.add('playing');
-    }} else {{
-      audio.pause();
-      btn.textContent = '▶ Resume';
-      btn.classList.remove('playing');
-    }}
-  }});
-  audio.onended = () => {{
-    audio.currentTime = 0;
-    btn.textContent = '▶ Play';
-    btn.classList.remove('playing');
-  }};
 </script>
 </body>
 </html>"""
@@ -173,13 +153,32 @@ class Handler(BaseHTTPRequestHandler):
                 self.send_response(404)
                 self.end_headers()
                 return
-            with open(audio_path, "rb") as f:
-                data = f.read()
-            self.send_response(200)
-            self.send_header("Content-Type", "audio/mp4")
-            self.send_header("Content-Length", str(len(data)))
-            self.end_headers()
-            self.wfile.write(data)
+            size = os.path.getsize(audio_path)
+            range_header = self.headers.get("Range")
+            if range_header:
+                start, end = range_header.replace("bytes=", "").split("-")
+                start = int(start)
+                end = int(end) if end else size - 1
+                length = end - start + 1
+                with open(audio_path, "rb") as f:
+                    f.seek(start)
+                    data = f.read(length)
+                self.send_response(206)
+                self.send_header("Content-Type", "audio/mp4")
+                self.send_header("Content-Range", f"bytes {start}-{end}/{size}")
+                self.send_header("Content-Length", str(length))
+                self.send_header("Accept-Ranges", "bytes")
+                self.end_headers()
+                self.wfile.write(data)
+            else:
+                with open(audio_path, "rb") as f:
+                    data = f.read()
+                self.send_response(200)
+                self.send_header("Content-Type", "audio/mp4")
+                self.send_header("Content-Length", str(size))
+                self.send_header("Accept-Ranges", "bytes")
+                self.end_headers()
+                self.wfile.write(data)
             return
 
         scenarios = sorted(list_scenarios())
