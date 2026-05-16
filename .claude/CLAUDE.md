@@ -1,4 +1,5 @@
 # General Instructions
+
 - maximize **information density** while minimizing **token consumption**. Agents must provide high-value, accurate responses without filler, redundant explanations, or unnecessary conversational etiquette.
 - **No Fluff:** Do not include introductory phrases (e.g., "Sure, I can help with that," "Here is the information you requested").
 - **No Conversational Filler:** Avoid "I hope this helps," "Let me know if you need anything else," or "As an AI language model..."
