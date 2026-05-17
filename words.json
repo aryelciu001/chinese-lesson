@@ -292,5 +292,215 @@
         "translation": "She likes romantic movies and candlelit dinners."
       }
     ]
+  },
+  {
+    "hanzi": "想起",
+    "pinyin": "xiǎng qǐ",
+    "examples": [
+      {
+        "hanzi": "我想起她了。",
+        "pinyin": "Wǒ xiǎng qǐ tā le.",
+        "translation": "I thought of her."
+      },
+      {
+        "hanzi": "他突然想起了自己的名字。",
+        "pinyin": "Tā tūrán xiǎng qǐ le zìjǐ de míngzì.",
+        "translation": "He suddenly remembered his own name."
+      },
+      {
+        "hanzi": "听到这首歌，我就会想起小时候在家乡的生活。",
+        "pinyin": "Tīng dào zhè shǒu gē, wǒ jiù huì xiǎng qǐ xiǎoshíhòu zài jiāxiāng de shēnghuó.",
+        "translation": "Whenever I hear this song, I'm reminded of my childhood life in my hometown."
+      }
+    ]
+  },
+  {
+    "hanzi": "共同",
+    "pinyin": "gòngtóng",
+    "examples": [
+      {
+        "hanzi": "我们共同努力。",
+        "pinyin": "Wǒmen gòngtóng nǔlì.",
+        "translation": "We work hard together."
+      },
+      {
+        "hanzi": "这是我们共同的目标。",
+        "pinyin": "Zhè shì wǒmen gòngtóng de mùbiāo.",
+        "translation": "This is our shared goal."
+      },
+      {
+        "hanzi": "两国领导人共同签署了这份协议。",
+        "pinyin": "Liǎng guó lǐngdǎorén gòngtóng qiānshǔ le zhè fèn xiéyì.",
+        "translation": "The leaders of both countries jointly signed the agreement."
+      }
+    ]
+  },
+  {
+    "hanzi": "不仅",
+    "pinyin": "bù jǐn",
+    "examples": [
+      {
+        "hanzi": "她不仅聪明，还很勤奋。",
+        "pinyin": "Tā bù jǐn cōngmíng, hái hěn qínfèn.",
+        "translation": "She is not only smart, but also hardworking."
+      },
+      {
+        "hanzi": "这本书不仅有趣，而且对我很有帮助。",
+        "pinyin": "Zhè běn shū bù jǐn yǒuqù, érqiě duì wǒ hěn yǒu bāngzhù.",
+        "translation": "This book is not only interesting, but also very helpful to me."
+      },
+      {
+        "hanzi": "他不仅在工作上取得了很大的成就，在家庭生活方面也非常幸福。",
+        "pinyin": "Tā bù jǐn zài gōngzuò shàng qǔdéle hěn dà de chéngjiù, zài jiātíng shēnghuó fāngmiàn yě fēicháng xìngfú.",
+        "translation": "He has not only achieved great success in his career, but is also very happy in his family life."
+      }
+    ]
+  },
+  {
+    "hanzi": "吸引",
+    "pinyin": "xīyǐn",
+    "examples": [
+      {
+        "hanzi": "她很吸引人。",
+        "pinyin": "Tā hěn xīyǐn rén.",
+        "translation": "She is very attractive."
+      },
+      {
+        "hanzi": "这部电影吸引了很多观众。",
+        "pinyin": "Zhè bù diànyǐng xīyǐn le hěn duō guānzhòng.",
+        "translation": "This movie attracted a lot of viewers."
+      },
+      {
+        "hanzi": "他的演讲非常吸引人，让所有人都专心听讲。",
+        "pinyin": "Tā de yǎnjiǎng fēicháng xīyǐn rén, ràng suǒyǒu rén dōu zhuānxīn tīngjiǎng.",
+        "translation": "His speech was very captivating, making everyone listen attentively."
+      }
+    ]
+  },
+  {
+    "hanzi": "幽默",
+    "pinyin": "yōu mò",
+    "examples": [
+      {
+        "hanzi": "他很幽默。",
+        "pinyin": "Tā hěn yōu mò.",
+        "translation": "He is very funny."
+      },
+      {
+        "hanzi": "她的幽默感让大家都笑了。",
+        "pinyin": "Tā de yōu mò gǎn ràng dàjiā dōu xiào le.",
+        "translation": "Her sense of humor made everyone laugh."
+      },
+      {
+        "hanzi": "好的喜剧演员需要有天生的幽默感和敏锐的观察力。",
+        "pinyin": "Hǎo de xǐjù yǎnyuán xūyào yǒu tiānshēng de yōu mò gǎn hé mǐnruì de guānchá lì.",
+        "translation": "A good comedian needs a natural sense of humor and sharp observational skills."
+      }
+    ]
+  },
+  {
+    "hanzi": "即使",
+    "pinyin": "jí shǐ",
+    "examples": [
+      {
+        "hanzi": "即使下雨，我也会去。",
+        "pinyin": "Jí shǐ xià yǔ, wǒ yě huì qù.",
+        "translation": "Even if it rains, I will still go."
+      },
+      {
+        "hanzi": "即使很累，他也继续工作。",
+        "pinyin": "Jí shǐ hěn lèi, tā yě jìxù gōngzuò.",
+        "translation": "Even if he is very tired, he continues to work."
+      },
+      {
+        "hanzi": "即使面对重重困难，我们也不会放弃自己的梦想。",
+        "pinyin": "Jí shǐ miànduì chóngchóng kùnnán, wǒmen yě bù huì fàngqì zìjǐ de mèngxiǎng.",
+        "translation": "Even if we face countless difficulties, we will not give up our dreams."
+      }
+    ]
+  },
+  {
+    "hanzi": "普通",
+    "pinyin": "pǔtōng",
+    "examples": [
+      {
+        "hanzi": "这很普通。",
+        "pinyin": "Zhè hěn pǔtōng.",
+        "translation": "This is very ordinary."
+      },
+      {
+        "hanzi": "他穿着普通的衣服。",
+        "pinyin": "Tā chuānzhe pǔtōng de yīfu.",
+        "translation": "He is wearing ordinary clothes."
+      },
+      {
+        "hanzi": "普通话是中国的官方语言。",
+        "pinyin": "Pǔtōnghuà shì Zhōngguó de guāngfāng yǔyán.",
+        "translation": "Mandarin is the official language of China."
+      }
+    ]
+  },
+  {
+    "hanzi": "脾气",
+    "pinyin": "pí qi",
+    "examples": [
+      {
+        "hanzi": "他脾气很好。",
+        "pinyin": "Tā pí qi hěn hǎo.",
+        "translation": "He has a very good temper."
+      },
+      {
+        "hanzi": "她今天脾气不好，别惹她。",
+        "pinyin": "Tā jīntiān pí qi bù hǎo, bié rě tā.",
+        "translation": "She's in a bad mood today; don't provoke her."
+      },
+      {
+        "hanzi": "他从小脾气就很倔，长大后更难改变了。",
+        "pinyin": "Tā cóng xiǎo pí qi jiù hěn juè, zhǎng dà hòu gèng nán gǎibiàn le.",
+        "translation": "He's been stubborn since childhood, and it's even harder to change as he's grown up."
+      }
+    ]
+  },
+  {
+    "hanzi": "几乎",
+    "pinyin": "jīhū",
+    "examples": [
+      {
+        "hanzi": "我几乎每天跑步。",
+        "pinyin": "Wǒ jīhū měitiān pǎobù.",
+        "translation": "I almost run every day."
+      },
+      {
+        "hanzi": "他几乎忘了她的生日。",
+        "pinyin": "Tā jīhū wàngle tā de shēngrì.",
+        "translation": "He almost forgot her birthday."
+      },
+      {
+        "hanzi": "这项工作几乎占据了他所有的时间。",
+        "pinyin": "Zhè xiàng gōngzuò jīhū zhànjùle tā suǒyǒu de shíjiān.",
+        "translation": "This job takes up almost all of his time."
+      }
+    ]
+  },
+  {
+    "hanzi": "红过脸",
+    "pinyin": "hóng guò liǎn",
+    "examples": [
+      {
+        "hanzi": "她害羞地红过脸。",
+        "pinyin": "Tā hàixiū de hóng guò liǎn.",
+        "translation": "She blushed shyly."
+      },
+      {
+        "hanzi": "他们认识这么久，从没红过脸。",
+        "pinyin": "Tāmen rènshi zhème jiǔ, cóng méi hóng guò liǎn.",
+        "translation": "They've known each other so long and never once had a falling out."
+      },
+      {
+        "hanzi": "我们夫妻二十年，几乎没红过脸，遇到分歧总是好好商量。",
+        "pinyin": "Wǒmen fūqī èrshí nián, jīhū méi hóng guò liǎn, yùdào fēnqí zǒng shì hǎohǎo shāngliang.",
+        "translation": "In twenty years of marriage, we've almost never quarreled — whenever we disagree, we always talk it through calmly."
+      }
+    ]
   }
 ]
