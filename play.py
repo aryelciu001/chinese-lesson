@@ -6,16 +6,27 @@ import sys
 import tempfile
 
 
+PAUSE = {
+    "。": "[[slnc 500]]",
+    "！": "[[slnc 500]]",
+    "？": "[[slnc 500]]",
+    "……": "[[slnc 800]]",
+    "；": "[[slnc 400]]",
+}
+
 def build_text(words):
     parts = []
     current = []
     for w in words:
-        if w["hanzi"] == "\n":
+        h = w["hanzi"]
+        if h == "\n":
             if current:
                 parts.append("".join(current))
             current = []
+        elif h in PAUSE:
+            current.append(" " + PAUSE[h] + " ")
         else:
-            current.append(w["hanzi"])
+            current.append(h)
     if current:
         parts.append("".join(current))
     return " [[slnc 700]] ".join(parts)

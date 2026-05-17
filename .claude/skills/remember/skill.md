@@ -17,8 +17,7 @@ When the user provides a Chinese word or phrase, append it to `words.md` using t
 
 - Use standard pinyin with tone marks (e.g. nǐ hǎo)
 - Provide 3 example sentences ordered from simple to complex
-- If the word already exists in `words.md`, update it instead of duplicating
-- Append to end of file with a blank line between entries
+- Always append to end of file — do not read `words.md` first, do not check for duplicates
 
 ## Trigger
 

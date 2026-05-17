@@ -60,3 +60,10 @@
 1. 我要写报告。— Wǒ yào xiě bàogào. — I need to write a report.
 2. 他向老板汇报了工作报告。— Tā xiàng lǎobǎn huìbào le gōngzuò bàogào. — He submitted the work report to the boss.
 3. 经理要求每周五提交一份详细的销售报告。— Jīnglǐ yāoqiú měi zhōuwǔ tíjiāo yī fèn xiángxì de xiāoshòu bàogào. — The manager requires a detailed sales report to be submitted every Friday.
+
+## 缺点 (quēdiǎn)
+
+**Examples:**
+1. 他有很多缺点。— Tā yǒu hěn duō quēdiǎn. — He has many flaws.
+2. 每个人都有自己的缺点。— Měi gè rén dōu yǒu zìjǐ de quēdiǎn. — Everyone has their own shortcomings.
+3. 只有接受了他的缺点，你们才能更好地一起生活。— Zhǐyǒu jiēshòu le tā de quēdiǎn, nǐmen cái néng gèng hǎo de yīqǐ shēnghuó. — Only by accepting his flaws can you live together better.

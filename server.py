@@ -1,11 +1,13 @@
 #!/usr/bin/env python3
 import json
 import os
+import subprocess
 from http.server import HTTPServer, BaseHTTPRequestHandler
 from urllib.parse import urlparse, parse_qs
 
 PARSED_DIR = os.path.join(os.path.dirname(__file__), "scenarios-parsed")
 AUDIO_DIR = os.path.join(os.path.dirname(__file__), "audio")
+WORDS_FILE = os.path.join(os.path.dirname(__file__), "words.json")
 
 
 def load_scenario(name):
@@ -16,6 +18,106 @@ def load_scenario(name):
 
 def list_scenarios():
     return [f[:-5] for f in os.listdir(PARSED_DIR) if f.endswith(".json")]
+
+
+def load_words():
+    with open(WORDS_FILE, encoding="utf-8") as f:
+        return json.load(f)
+
+
+def save_words(words):
+    with open(WORDS_FILE, "w", encoding="utf-8") as f:
+        json.dump(words, f, ensure_ascii=False, indent=2)
+
+
+def generate_word_data(hanzi):
+    prompt = (
+        f'For the Chinese word or phrase "{hanzi}", output ONLY valid JSON with no markdown or explanation:\n'
+        '{"pinyin": "tone-marked pinyin", "examples": ['
+        '{"hanzi": "sentence", "pinyin": "sentence pinyin", "translation": "english"}, ...]}\n'
+        "Provide exactly 3 examples ordered simple to complex."
+    )
+    result = subprocess.run(
+        ["claude", "-p", prompt],
+        capture_output=True, text=True, timeout=60
+    )
+    return json.loads(result.stdout.strip())
+
+
+def render_words_html(words):
+    cards = ""
+    for w in words:
+        examples_html = "".join(
+            f'<li>'
+            f'<div class="ex-row"><span class="ex-hanzi">{e["hanzi"]}</span>'
+            f'<button class="speak-btn" data-text="{e["hanzi"]}">🔊</button></div>'
+            f'<span class="ex-pinyin">{e["pinyin"]}</span>'
+            f'<span class="ex-trans">{e["translation"]}</span>'
+            f'</li>'
+            for e in w["examples"]
+        )
+        cards += f"""<div class="card">
+  <div class="card-head">
+    <span class="w-hanzi">{w["hanzi"]}</span>
+    <span class="w-pinyin">{w["pinyin"]}</span>
+    <button class="speak-btn" data-text="{w["hanzi"]}">🔊</button>
+  </div>
+  <ol class="examples">{examples_html}</ol>
+</div>"""
+
+    return f"""<!DOCTYPE html>
+<html lang="zh">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Words</title>
+<style>
+  * {{ box-sizing: border-box; margin: 0; padding: 0; }}
+  body {{ font-family: sans-serif; background: #f5f5f5; padding: 24px; }}
+  .container {{ max-width: 800px; margin: 0 auto; }}
+  header {{ display: flex; align-items: center; gap: 16px; margin-bottom: 32px; }}
+  header a {{ font-size: 14px; color: #555; text-decoration: none; }}
+  header a:hover {{ color: #111; }}
+  h1 {{ font-size: 20px; font-weight: bold; }}
+  .grid {{ display: grid; gap: 16px; }}
+  .card {{ background: white; border: 1px solid #ddd; border-radius: 10px; padding: 20px; }}
+  .card-head {{ display: flex; align-items: center; gap: 12px; margin-bottom: 14px; }}
+  .w-hanzi {{ font-size: 28px; font-weight: bold; color: #111; }}
+  .w-pinyin {{ font-size: 14px; color: #e07b00; }}
+  .examples {{ padding-left: 18px; display: flex; flex-direction: column; gap: 10px; }}
+  .examples li {{ font-size: 14px; line-height: 1.5; }}
+  .ex-row {{ display: flex; align-items: center; gap: 6px; }}
+  .ex-hanzi {{ color: #111; }}
+  .ex-pinyin {{ display: block; color: #e07b00; font-size: 12px; }}
+  .ex-trans {{ display: block; color: #777; font-size: 12px; }}
+  .speak-btn {{ background: none; border: none; cursor: pointer; font-size: 14px; padding: 2px 4px; opacity: 0.6; }}
+  .speak-btn:hover {{ opacity: 1; }}
+</style>
+</head>
+<body>
+<div class="container">
+<header>
+  <a href="/">← Scenarios</a>
+  <h1>Words</h1>
+</header>
+<div class="grid">
+{cards}
+</div>
+</div>
+<script>
+  function speak(text) {{
+    const utt = new SpeechSynthesisUtterance(text);
+    utt.lang = 'zh-CN';
+    utt.rate = 0.8;
+    speechSynthesis.cancel();
+    speechSynthesis.speak(utt);
+  }}
+  document.querySelectorAll('.speak-btn').forEach(btn => {{
+    btn.addEventListener('click', () => speak(btn.dataset.text));
+  }});
+</script>
+</body>
+</html>"""
 
 
 def render_html(scenario_name, words, show_pinyin, show_translation):
@@ -45,6 +147,8 @@ def render_html(scenario_name, words, show_pinyin, show_translation):
   body {{ font-family: sans-serif; background: #f5f5f5; padding: 24px; line-height: 1; width: 100%; }}
   .container {{ max-width: 800px; margin: 0 auto; }}
   header {{ display: flex; align-items: center; gap: 16px; flex-wrap: wrap; margin-bottom: 32px; }}
+  header a {{ font-size: 14px; color: #555; text-decoration: none; }}
+  header a:hover {{ color: #111; }}
   select {{ font-size: 14px; padding: 6px 10px; border-radius: 6px; border: 1px solid #ccc; }}
   button {{ font-size: 14px; padding: 6px 14px; border-radius: 6px; border: 1px solid #ccc; background: white; cursor: pointer; }}
   button:hover {{ background: #f0f0f0; }}
@@ -71,6 +175,11 @@ def render_html(scenario_name, words, show_pinyin, show_translation):
   .popup-hanzi {{ font-size: 48px; font-weight: bold; color: #111; }}
   .popup-pinyin {{ font-size: 18px; color: #e07b00; margin-top: 8px; }}
   .popup-translation {{ font-size: 14px; color: #555; margin-top: 8px; }}
+  .popup-actions {{ display: flex; gap: 10px; margin-top: 16px; justify-content: center; align-items: center; }}
+  .popup-status {{ font-size: 12px; color: #888; }}
+  .popup-status.saved {{ color: #4caf50; }}
+  .popup-status.exists {{ color: #e07b00; }}
+  .popup-status.error {{ color: #e53935; }}
 </style>
 </head>
 <body>
@@ -90,13 +199,18 @@ def render_html(scenario_name, words, show_pinyin, show_translation):
     </label>
   </div>
   <audio controls src="/audio/{scenario_name}.m4a"></audio>
+  <a href="/words">Words →</a>
 </header>
 <div class="popup-overlay" id="overlay">
   <div class="popup">
     <div class="popup-hanzi" id="popup-hanzi"></div>
     <div class="popup-pinyin" id="popup-pinyin"></div>
     <div class="popup-translation" id="popup-translation"></div>
-    <button id="popup-speak" style="margin-top:16px; font-size:18px; padding:6px 16px;">🔊</button>
+    <div class="popup-actions">
+      <button id="popup-speak" style="font-size:18px; padding:6px 16px;">🔊</button>
+      <button id="popup-save">＋ Save word</button>
+      <span class="popup-status" id="popup-status"></span>
+    </div>
   </div>
 </div>
 <div class="text">
@@ -114,11 +228,18 @@ def render_html(scenario_name, words, show_pinyin, show_translation):
   apply();
 
   const overlay = document.getElementById('overlay');
+  const popupStatus = document.getElementById('popup-status');
+  const popupSave = document.getElementById('popup-save');
+
   document.querySelectorAll('.word').forEach(word => {{
     word.addEventListener('click', () => {{
       document.getElementById('popup-hanzi').textContent = word.querySelector('.hanzi').textContent;
       document.getElementById('popup-pinyin').textContent = word.querySelector('.pinyin').textContent;
       document.getElementById('popup-translation').textContent = word.querySelector('.translation').textContent;
+      popupStatus.textContent = '';
+      popupStatus.className = 'popup-status';
+      popupSave.disabled = false;
+      popupSave.textContent = '＋ Save word';
       overlay.classList.add('open');
     }});
   }});
@@ -134,6 +255,36 @@ def render_html(scenario_name, words, show_pinyin, show_translation):
     speechSynthesis.speak(utt);
   }});
 
+  popupSave.addEventListener('click', async () => {{
+    const hanzi = document.getElementById('popup-hanzi').textContent;
+    popupSave.disabled = true;
+    popupSave.textContent = 'Saving…';
+    popupStatus.textContent = '';
+    popupStatus.className = 'popup-status';
+    try {{
+      const res = await fetch('/api/add-word', {{
+        method: 'POST',
+        headers: {{'Content-Type': 'application/json'}},
+        body: JSON.stringify({{hanzi}})
+      }});
+      const data = await res.json();
+      if (data.status === 'added') {{
+        popupStatus.textContent = 'Saved!';
+        popupStatus.classList.add('saved');
+      }} else if (data.status === 'exists') {{
+        popupStatus.textContent = 'Already saved';
+        popupStatus.classList.add('exists');
+      }} else {{
+        popupStatus.textContent = 'Error';
+        popupStatus.classList.add('error');
+      }}
+    }} catch (e) {{
+      popupStatus.textContent = 'Error';
+      popupStatus.classList.add('error');
+    }}
+    popupSave.textContent = '＋ Save word';
+  }});
+
 </script>
 </body>
 </html>"""
@@ -142,6 +293,37 @@ def render_html(scenario_name, words, show_pinyin, show_translation):
 class Handler(BaseHTTPRequestHandler):
     def log_message(self, fmt, *args):
         print(fmt % args)
+
+    def _send_json(self, data, status=200):
+        body = json.dumps(data, ensure_ascii=False).encode("utf-8")
+        self.send_response(status)
+        self.send_header("Content-Type", "application/json")
+        self.send_header("Content-Length", str(len(body)))
+        self.end_headers()
+        self.wfile.write(body)
+
+    def do_POST(self):
+        if self.path == "/api/add-word":
+            length = int(self.headers.get("Content-Length", 0))
+            body = json.loads(self.rfile.read(length))
+            hanzi = body.get("hanzi", "").strip()
+            if not hanzi:
+                self._send_json({"status": "error", "message": "no hanzi"}, 400)
+                return
+            words = load_words()
+            if any(w["hanzi"] == hanzi for w in words):
+                self._send_json({"status": "exists"})
+                return
+            try:
+                data = generate_word_data(hanzi)
+                words.append({"hanzi": hanzi, "pinyin": data["pinyin"], "examples": data["examples"]})
+                save_words(words)
+                self._send_json({"status": "added"})
+            except Exception as e:
+                self._send_json({"status": "error", "message": str(e)}, 500)
+        else:
+            self.send_response(404)
+            self.end_headers()
 
     def do_GET(self):
         parsed = urlparse(self.path)
@@ -179,6 +361,16 @@ class Handler(BaseHTTPRequestHandler):
                 self.send_header("Accept-Ranges", "bytes")
                 self.end_headers()
                 self.wfile.write(data)
+            return
+
+        if parsed.path == "/words":
+            html = render_words_html(load_words())
+            body = html.encode("utf-8")
+            self.send_response(200)
+            self.send_header("Content-Type", "text/html; charset=utf-8")
+            self.send_header("Content-Length", str(len(body)))
+            self.end_headers()
+            self.wfile.write(body)
             return
 
         scenarios = sorted(list_scenarios())

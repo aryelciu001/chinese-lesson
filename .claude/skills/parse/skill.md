@@ -25,6 +25,7 @@ Parse a scenario `.md` file from the `/scenarios` folder and extract every meani
 - Write the JSON output to `/scenarios-parsed/<filename>.json` (same base name as the input)
 - when combined, json should form back the original md file
 - also handle newline (\n) by setting hanzi as "\n"
+- also handle sentence-ending punctuation (。！？……) as separate tokens with hanzi set to the punctuation character, pinyin and translation as ""
 - After writing the JSON, run via Bash: `python3 play.py scenarios-parsed/<filename>.json -o audio/<filename>.m4a` (create `/audio/` dir if needed)
 
 ## Trigger
