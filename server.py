@@ -5,9 +5,16 @@ import subprocess
 from http.server import HTTPServer, BaseHTTPRequestHandler
 from urllib.parse import urlparse, parse_qs
 
+import psycopg2
+import psycopg2.extras
+
 PARSED_DIR = os.path.join(os.path.dirname(__file__), "scenarios-parsed")
 AUDIO_DIR = os.path.join(os.path.dirname(__file__), "audio")
-WORDS_FILE = os.path.join(os.path.dirname(__file__), "words.json")
+DATABASE_URL = os.environ.get("DATABASE_URL")
+
+
+def get_conn():
+    return psycopg2.connect(DATABASE_URL)
 
 
 def load_scenario(name):
@@ -22,36 +29,100 @@ def list_scenarios():
 
 
 def display_name(scenario_name):
-    # Strip leading NNN- prefix for display
     parts = scenario_name.split("-", 1)
     if len(parts) == 2 and parts[0].isdigit():
-        return parts[1]
+        return f"{parts[0]} - {parts[1]}"
     return scenario_name
 
 
 def load_words():
-    with open(WORDS_FILE, encoding="utf-8") as f:
-        return json.load(f)
+    with get_conn() as conn, conn.cursor(cursor_factory=psycopg2.extras.RealDictCursor) as cur:
+        cur.execute("SELECT id, hanzi, pinyin FROM words WHERE deleted_at IS NULL ORDER BY id DESC")
+        rows = cur.fetchall()
+        words = []
+        for row in rows:
+            cur.execute(
+                "SELECT hanzi, pinyin, translation FROM word_examples WHERE word_id = %s ORDER BY id",
+                (row["id"],),
+            )
+            words.append({"hanzi": row["hanzi"], "pinyin": row["pinyin"], "examples": cur.fetchall()})
+        return words
 
 
-def save_words(words):
-    with open(WORDS_FILE, "w", encoding="utf-8") as f:
-        json.dump(words, f, ensure_ascii=False, indent=2)
+def save_word(hanzi, pinyin, examples):
+    with get_conn() as conn, conn.cursor() as cur:
+        cur.execute(
+            "INSERT INTO words (hanzi, pinyin) VALUES (%s, %s) RETURNING id",
+            (hanzi, pinyin),
+        )
+        word_id = cur.fetchone()[0]
+        for i, ex in enumerate(examples):
+            cur.execute(
+                "INSERT INTO word_examples (word_id, hanzi, pinyin, translation) VALUES (%s, %s, %s, %s)",
+                (word_id, ex["hanzi"], ex["pinyin"], ex["translation"]),
+            )
+        conn.commit()
+
+
+def word_exists(hanzi):
+    with get_conn() as conn, conn.cursor() as cur:
+        cur.execute("SELECT 1 FROM words WHERE hanzi = %s AND deleted_at IS NULL", (hanzi,))
+        return cur.fetchone() is not None
+
+
+def import_words_json():
+    with open(os.path.join(os.path.dirname(__file__), "words.json"), encoding="utf-8") as f:
+        words = json.load(f)
+    inserted = skipped = 0
+    with get_conn() as conn, conn.cursor() as cur:
+        for w in words:
+            cur.execute("SELECT 1 FROM words WHERE hanzi = %s AND deleted_at IS NULL", (w["hanzi"],))
+            if cur.fetchone():
+                skipped += 1
+                continue
+            cur.execute(
+                "INSERT INTO words (hanzi, pinyin) VALUES (%s, %s) RETURNING id",
+                (w["hanzi"], w["pinyin"]),
+            )
+            word_id = cur.fetchone()[0]
+            for ex in w["examples"]:
+                cur.execute(
+                    "INSERT INTO word_examples (word_id, hanzi, pinyin, translation) VALUES (%s, %s, %s, %s)",
+                    (word_id, ex["hanzi"], ex["pinyin"], ex["translation"]),
+                )
+            inserted += 1
+        conn.commit()
+    return inserted, skipped
 
 
 def generate_word_data(hanzi):
     prompt = (
-        f'For the Chinese word or phrase "{hanzi}", output ONLY valid JSON with no markdown or explanation:\n'
-        '{"pinyin": "tone-marked pinyin", "examples": ['
-        '{"hanzi": "sentence", "pinyin": "sentence pinyin", "translation": "english"}, ...]}\n'
-        "Provide exactly 3 examples ordered simple to complex. "
-        "Each example must be a natural, contextually rich sentence (HSK 4-6 level). "
-        "Avoid trivial sentences like subject+verb+word with no context."
+        f'For the Chinese word or phrase "{hanzi}", output ONLY plain text, exactly 10 lines, no labels, no blank lines:\n'
+        "Line 1: pinyin of the word\n"
+        "Line 2: example sentence 1 (hanzi)\n"
+        "Line 3: example sentence 2 (hanzi)\n"
+        "Line 4: example sentence 3 (hanzi)\n"
+        "Line 5: example sentence 1 (pinyin)\n"
+        "Line 6: example sentence 2 (pinyin)\n"
+        "Line 7: example sentence 3 (pinyin)\n"
+        "Line 8: example sentence 1 (english translation)\n"
+        "Line 9: example sentence 2 (english translation)\n"
+        "Line 10: example sentence 3 (english translation)\n"
+        "Examples must be natural, contextually rich sentences (HSK 4-6 level), ordered simple to complex."
     )
     result = subprocess.run(
-        ["claude", "-p", json.dumps(prompt)], capture_output=True, text=True, timeout=60
+        ["claude", "-p", prompt], capture_output=True, text=True, timeout=60
     )
-    return json.loads(result.stdout.strip())
+    lines = result.stdout.strip().splitlines()
+    if len(lines) < 10:
+        raise ValueError(f"unexpected output ({len(lines)} lines): {result.stdout!r}")
+    return {
+        "pinyin": lines[0],
+        "examples": [
+            {"hanzi": lines[1 + i], "pinyin": lines[4 + i], "translation": lines[7 + i]}
+            for i in range(3)
+        ],
+    }
 
 
 def render_words_html(words):
@@ -66,11 +137,12 @@ def render_words_html(words):
             f"</li>"
             for e in w["examples"]
         )
-        cards += f"""<div class="card">
+        cards += f"""<div class="card" data-hanzi="{w["hanzi"]}">
   <div class="card-head">
     <span class="w-hanzi">{w["hanzi"]}</span>
     <span class="w-pinyin">{w["pinyin"]}</span>
     <button class="speak-btn" data-text="{w["hanzi"]}">🔊</button>
+    <button class="del-btn" data-hanzi="{w["hanzi"]}" title="Delete">✕</button>
   </div>
   <ol class="examples">{examples_html}</ol>
 </div>"""
@@ -102,6 +174,17 @@ def render_words_html(words):
   .ex-trans {{ display: block; color: #777; font-size: 16px; }}
   .speak-btn {{ background: none; border: none; cursor: pointer; font-size: 14px; padding: 2px 4px; opacity: 0.6; }}
   .speak-btn:hover {{ opacity: 1; }}
+  .card-head {{ position: relative; }}
+  .del-btn {{ margin-left: auto; background: none; border: none; cursor: pointer; font-size: 14px; color: #bbb; padding: 2px 4px; }}
+  .del-btn:hover {{ color: #c0392b; }}
+  .add-bar {{ position: fixed; bottom: 24px; right: 24px; display: flex; align-items: center; gap: 8px; background: white; border: 1px solid #ddd; border-radius: 12px; padding: 10px 14px; box-shadow: 0 4px 16px rgba(0,0,0,0.12); }}
+  .add-bar input {{ font-size: 18px; border: none; outline: none; width: 120px; background: transparent; }}
+  .add-bar button {{ font-size: 13px; padding: 4px 10px; border-radius: 6px; border: 1px solid #ccc; background: #f5f5f5; cursor: pointer; }}
+  .add-bar button:disabled {{ opacity: 0.5; cursor: default; }}
+  .add-status {{ font-size: 12px; color: #888; }}
+  .add-status.saved {{ color: #2a9d2a; }}
+  .add-status.exists {{ color: #888; }}
+  .add-status.err {{ color: #c0392b; }}
 </style>
 </head>
 <body>
@@ -114,6 +197,11 @@ def render_words_html(words):
 {cards}
 </div>
 </div>
+<div class="add-bar">
+  <input id="add-input" type="text" placeholder="汉字…" autocomplete="off">
+  <button id="add-btn">Add</button>
+  <span class="add-status" id="add-status"></span>
+</div>
 <script>
   function speak(text) {{
     const utt = new SpeechSynthesisUtterance(text);
@@ -125,6 +213,66 @@ def render_words_html(words):
   document.querySelectorAll('.speak-btn').forEach(btn => {{
     btn.addEventListener('click', () => speak(btn.dataset.text));
   }});
+
+  document.querySelectorAll('.del-btn').forEach(btn => {{
+    btn.addEventListener('click', async () => {{
+      const hanzi = btn.dataset.hanzi;
+      btn.disabled = true;
+      const res = await fetch('/api/delete-word', {{
+        method: 'POST',
+        headers: {{'Content-Type': 'application/json'}},
+        body: JSON.stringify({{hanzi}})
+      }});
+      const data = await res.json();
+      if (data.status === 'deleted') {{
+        btn.closest('.card').remove();
+      }} else {{
+        btn.disabled = false;
+      }}
+    }});
+  }});
+
+  const addInput = document.getElementById('add-input');
+  const addBtn = document.getElementById('add-btn');
+  const addStatus = document.getElementById('add-status');
+
+  async function addWord() {{
+    const hanzi = addInput.value.trim();
+    if (!hanzi) return;
+    addBtn.disabled = true;
+    addBtn.textContent = 'Adding…';
+    addStatus.textContent = '';
+    addStatus.className = 'add-status';
+    try {{
+      const res = await fetch('/api/add-word', {{
+        method: 'POST',
+        headers: {{'Content-Type': 'application/json'}},
+        body: JSON.stringify({{hanzi}})
+      }});
+      const data = await res.json();
+      if (data.status === 'added') {{
+        addStatus.textContent = 'Saved!';
+        addStatus.classList.add('saved');
+        addInput.value = '';
+        setTimeout(() => location.reload(), 800);
+      }} else if (data.status === 'exists') {{
+        addStatus.textContent = 'Already saved';
+        addStatus.classList.add('exists');
+      }} else {{
+        addStatus.textContent = data.message || 'Error';
+        addStatus.classList.add('err');
+      }}
+    }} catch(e) {{
+      addStatus.textContent = 'Error';
+      addStatus.classList.add('err');
+    }} finally {{
+      addBtn.disabled = false;
+      addBtn.textContent = 'Add';
+    }}
+  }}
+
+  addBtn.addEventListener('click', addWord);
+  addInput.addEventListener('keydown', e => {{ if (e.key === 'Enter') addWord(); }});
 </script>
 </body>
 </html>"""
@@ -320,21 +468,40 @@ class Handler(BaseHTTPRequestHandler):
             if not hanzi:
                 self._send_json({"status": "error", "message": "no hanzi"}, 400)
                 return
-            words = load_words()
-            if any(w["hanzi"] == hanzi for w in words):
+            if word_exists(hanzi):
                 self._send_json({"status": "exists"})
                 return
             try:
                 data = generate_word_data(hanzi)
-                words.append(
-                    {
-                        "hanzi": hanzi,
-                        "pinyin": data["pinyin"],
-                        "examples": data["examples"],
-                    }
-                )
-                save_words(words)
+                save_word(hanzi, data["pinyin"], data["examples"])
                 self._send_json({"status": "added"})
+            except Exception as e:
+                self._send_json({"status": "error", "message": str(e)}, 500)
+        elif self.path == "/api/import-words":
+            try:
+                inserted, skipped = import_words_json()
+                self._send_json({"status": "ok", "inserted": inserted, "skipped": skipped})
+            except Exception as e:
+                self._send_json({"status": "error", "message": str(e)}, 500)
+        elif self.path == "/api/delete-word":
+            length = int(self.headers.get("Content-Length", 0))
+            body = json.loads(self.rfile.read(length))
+            hanzi = body.get("hanzi", "").strip()
+            if not hanzi:
+                self._send_json({"status": "error", "message": "no hanzi"}, 400)
+                return
+            try:
+                with get_conn() as conn, conn.cursor() as cur:
+                    cur.execute(
+                        "UPDATE words SET deleted_at = NOW() WHERE hanzi = %s AND deleted_at IS NULL RETURNING id",
+                        (hanzi,),
+                    )
+                    updated = cur.fetchone()
+                    conn.commit()
+                if updated:
+                    self._send_json({"status": "deleted"})
+                else:
+                    self._send_json({"status": "not_found"}, 404)
             except Exception as e:
                 self._send_json({"status": "error", "message": str(e)}, 500)
         else:

@@ -1,0 +1,20 @@
+services:
+  db:
+    image: postgres:16
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+      POSTGRES_DB: chinese_lesson
+    ports:
+      - "5432:5432"
+    volumes:
+      - pg_data:/var/lib/postgresql/data
+      - ./sql/schema.sql:/schema.sql:ro
+    command: >
+      bash -c "docker-entrypoint.sh postgres &
+               until pg_isready -U postgres; do sleep 1; done;
+               psql -U postgres -d chinese_lesson -f /schema.sql;
+               wait"
+
+volumes:
+  pg_data:
