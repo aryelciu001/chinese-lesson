@@ -49,7 +49,7 @@ def generate_word_data(hanzi):
         "Avoid trivial sentences like subject+verb+word with no context."
     )
     result = subprocess.run(
-        ["claude", "-p", prompt], capture_output=True, text=True, timeout=60
+        ["claude", "-p", json.dumps(prompt)], capture_output=True, text=True, timeout=60
     )
     return json.loads(result.stdout.strip())
 
