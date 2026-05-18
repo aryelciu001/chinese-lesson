@@ -44,7 +44,9 @@ def generate_word_data(hanzi):
         f'For the Chinese word or phrase "{hanzi}", output ONLY valid JSON with no markdown or explanation:\n'
         '{"pinyin": "tone-marked pinyin", "examples": ['
         '{"hanzi": "sentence", "pinyin": "sentence pinyin", "translation": "english"}, ...]}\n'
-        "Provide exactly 3 examples ordered simple to complex."
+        "Provide exactly 3 examples ordered simple to complex. "
+        "Each example must be a natural, contextually rich sentence (HSK 4-6 level). "
+        "Avoid trivial sentences like subject+verb+word with no context."
     )
     result = subprocess.run(
         ["claude", "-p", prompt], capture_output=True, text=True, timeout=60
