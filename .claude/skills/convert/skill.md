@@ -32,7 +32,7 @@ Convert raw Chinese text into a scenario file and parse it in one step.
 ## Rules
 
 - Argument is raw Chinese text (any length, paragraph or dialogue)
-- Choose an English filename that reflects the topic/theme of the text (e.g. `romance`, `family-dinner`, `job-interview`)
+- Choose an English filename with a numeric prefix matching the next available ID. Check existing files in `/scenarios-parsed/` (e.g. `ls scenarios-parsed/`) to find the highest current ID, then increment by 1. Format: `NNN-topic-name` (e.g. `013-family-dinner`)
 - Clean up any OCR artifacts or spacing issues in the Hanzi before writing
 - Pinyin must use proper tone marks and match the Hanzi exactly, line by line
 - No terminal output — all output goes to files

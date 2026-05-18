@@ -502,5 +502,131 @@
         "translation": "In twenty years of marriage, we've almost never quarreled — whenever we disagree, we always talk it through calmly."
       }
     ]
+  },
+  {
+    "hanzi": "适应",
+    "pinyin": "shì yìng",
+    "examples": [
+      {
+        "hanzi": "我慢慢适应了。",
+        "pinyin": "Wǒ màn màn shì yìng le.",
+        "translation": "I gradually adapted."
+      },
+      {
+        "hanzi": "他很快就适应了新环境。",
+        "pinyin": "Tā hěn kuài jiù shì yìng le xīn huán jìng.",
+        "translation": "He quickly adapted to the new environment."
+      },
+      {
+        "hanzi": "搬到新城市后，她花了好几个月才适应当地的生活方式。",
+        "pinyin": "Bān dào xīn chéng shì hòu, tā huā le hǎo jǐ gè yuè cái shì yìng dāng dì de shēng huó fāng shì.",
+        "translation": "After moving to the new city, it took her several months to adapt to the local way of life."
+      }
+    ]
+  },
+  {
+    "hanzi": "短信",
+    "pinyin": "duǎn xìn",
+    "examples": [
+      {
+        "hanzi": "我收到一条短信。",
+        "pinyin": "Wǒ shōu dào yī tiáo duǎn xìn.",
+        "translation": "I received a text message."
+      },
+      {
+        "hanzi": "你给我发短信吧。",
+        "pinyin": "Nǐ gěi wǒ fā duǎn xìn ba.",
+        "translation": "Just send me a text message."
+      },
+      {
+        "hanzi": "他每天都给她发很多短信，但她从来不回复。",
+        "pinyin": "Tā měi tiān dōu gěi tā fā hěn duō duǎn xìn, dàn tā cónglái bù huífù.",
+        "translation": "He sends her many text messages every day, but she never replies."
+      }
+    ]
+  },
+  {
+    "hanzi": "聚会",
+    "pinyin": "jù huì",
+    "examples": [
+      {
+        "hanzi": "我们今晚有聚会。",
+        "pinyin": "Wǒmen jīnwǎn yǒu jùhuì.",
+        "translation": "We have a gathering tonight."
+      },
+      {
+        "hanzi": "她喜欢参加朋友的聚会。",
+        "pinyin": "Tā xǐhuān cānjiā péngyǒu de jùhuì.",
+        "translation": "She likes attending her friends' parties."
+      },
+      {
+        "hanzi": "每年春节，我们全家都会举办一次大型聚会。",
+        "pinyin": "Měi nián Chūnjié, wǒmen quánjiā dōu huì jǔbàn yī cì dàxíng jùhuì.",
+        "translation": "Every Chinese New Year, our whole family holds a large gathering."
+      }
+    ]
+  },
+  {
+    "hanzi": "丰富",
+    "pinyin": "fēngfù",
+    "examples": [
+      {
+        "hanzi": "这里的食物很丰富。",
+        "pinyin": "Zhèlǐ de shíwù hěn fēngfù.",
+        "translation": "The food here is very abundant."
+      },
+      {
+        "hanzi": "他的生活经验非常丰富。",
+        "pinyin": "Tā de shēnghuó jīngyàn fēicháng fēngfù.",
+        "translation": "His life experience is very rich."
+      },
+      {
+        "hanzi": "多读书可以丰富你的知识和词汇量。",
+        "pinyin": "Duō dúshū kěyǐ fēngfù nǐ de zhīshì hé cíhuì liàng.",
+        "translation": "Reading more books can enrich your knowledge and vocabulary."
+      }
+    ]
+  },
+  {
+    "hanzi": "交流",
+    "pinyin": "jiāoliú",
+    "examples": [
+      {
+        "hanzi": "我们可以交流。",
+        "pinyin": "Wǒmen kěyǐ jiāoliú.",
+        "translation": "We can communicate."
+      },
+      {
+        "hanzi": "他喜欢和外国人交流文化。",
+        "pinyin": "Tā xǐhuān hé wàiguórén jiāoliú wénhuà.",
+        "translation": "He likes to exchange cultures with foreigners."
+      },
+      {
+        "hanzi": "这次国际会议为两国提供了深入交流的机会。",
+        "pinyin": "Zhè cì guójì huìyì wèi liǎng guó tígōngle shēnrù jiāoliú de jīhuì.",
+        "translation": "This international conference provided both countries with an opportunity for in-depth exchange."
+      }
+    ]
+  },
+  {
+    "hanzi": "兴趣",
+    "pinyin": "xìng qù",
+    "examples": [
+      {
+        "hanzi": "我有兴趣。",
+        "pinyin": "Wǒ yǒu xìng qù.",
+        "translation": "I'm interested."
+      },
+      {
+        "hanzi": "你对什么有兴趣？",
+        "pinyin": "Nǐ duì shénme yǒu xìng qù?",
+        "translation": "What are you interested in?"
+      },
+      {
+        "hanzi": "她对中国文化有浓厚的兴趣。",
+        "pinyin": "Tā duì Zhōngguó wénhuà yǒu nónghòu de xìng qù.",
+        "translation": "She has a deep interest in Chinese culture."
+      }
+    ]
   }
 ]

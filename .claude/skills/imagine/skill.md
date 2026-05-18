@@ -35,7 +35,7 @@ Output three separate sections in this exact order:
 - Do not use any idioms, unless it is appropriate. the goal of the study is to have conversational skill
 - Topic is provided as the skill argument — use it as the setting or subject of the conversation
 - Write the skill output in English (labels, section headers), Chinese for the content
-- write the conversation to /scenarios folder. name it in english. no output on terminal
+- write the conversation to /scenarios folder. name it in english with a numeric prefix: check `ls scenarios-parsed/` to find the highest current NNN, increment by 1, and name the file `NNN-topic-name.md`. no output on terminal
 
 ## Trigger
 

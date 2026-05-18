@@ -17,7 +17,16 @@ def load_scenario(name):
 
 
 def list_scenarios():
-    return [f[:-5] for f in os.listdir(PARSED_DIR) if f.endswith(".json")]
+    names = sorted(f[:-5] for f in os.listdir(PARSED_DIR) if f.endswith(".json"))
+    return names
+
+
+def display_name(scenario_name):
+    # Strip leading NNN- prefix for display
+    parts = scenario_name.split("-", 1)
+    if len(parts) == 2 and parts[0].isdigit():
+        return parts[1]
+    return scenario_name
 
 
 def load_words():
@@ -38,8 +47,7 @@ def generate_word_data(hanzi):
         "Provide exactly 3 examples ordered simple to complex."
     )
     result = subprocess.run(
-        ["claude", "-p", prompt],
-        capture_output=True, text=True, timeout=60
+        ["claude", "-p", prompt], capture_output=True, text=True, timeout=60
     )
     return json.loads(result.stdout.strip())
 
@@ -48,12 +56,12 @@ def render_words_html(words):
     cards = ""
     for w in words:
         examples_html = "".join(
-            f'<li>'
+            f"<li>"
             f'<div class="ex-row"><span class="ex-hanzi">{e["hanzi"]}</span>'
             f'<button class="speak-btn" data-text="{e["hanzi"]}">🔊</button></div>'
             f'<span class="ex-pinyin">{e["pinyin"]}</span>'
             f'<span class="ex-trans">{e["translation"]}</span>'
-            f'</li>'
+            f"</li>"
             for e in w["examples"]
         )
         cards += f"""<div class="card">
@@ -87,9 +95,9 @@ def render_words_html(words):
   .examples {{ padding-left: 18px; display: flex; flex-direction: column; gap: 10px; }}
   .examples li {{ font-size: 14px; line-height: 1.5; }}
   .ex-row {{ display: flex; align-items: center; gap: 6px; }}
-  .ex-hanzi {{ color: #111; }}
-  .ex-pinyin {{ display: block; color: #e07b00; font-size: 12px; }}
-  .ex-trans {{ display: block; color: #777; font-size: 12px; }}
+  .ex-hanzi {{ color: #111; font-size: 16px; }}
+  .ex-pinyin {{ display: block; color: #e07b00; font-size: 16px; }}
+  .ex-trans {{ display: block; color: #777; font-size: 16px; }}
   .speak-btn {{ background: none; border: none; cursor: pointer; font-size: 14px; padding: 2px 4px; opacity: 0.6; }}
   .speak-btn:hover {{ opacity: 1; }}
 </style>
@@ -122,8 +130,8 @@ def render_words_html(words):
 
 def render_html(scenario_name, words, show_pinyin, show_translation):
     options_html = "".join(
-        f'<option value="{s}" {"selected" if s == scenario_name else ""}>{s}</option>'
-        for s in sorted(list_scenarios())
+        f'<option value="{s}" {"selected" if s == scenario_name else ""}>{display_name(s)}</option>'
+        for s in list_scenarios()
     )
 
     def render_word(w):
@@ -316,7 +324,13 @@ class Handler(BaseHTTPRequestHandler):
                 return
             try:
                 data = generate_word_data(hanzi)
-                words.append({"hanzi": hanzi, "pinyin": data["pinyin"], "examples": data["examples"]})
+                words.append(
+                    {
+                        "hanzi": hanzi,
+                        "pinyin": data["pinyin"],
+                        "examples": data["examples"],
+                    }
+                )
                 save_words(words)
                 self._send_json({"status": "added"})
             except Exception as e:
