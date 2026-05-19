@@ -11,7 +11,6 @@ Review git status and create a commit with an appropriate message.
 
 ## Rules
 
-- Ignore changes in scenarios, parsed scenarios, and audio
 - Commit message should be short (under 72 chars), imperative tense, lowercase
 - Do not include Co-Authored-By or any trailer lines
 - No confirmation needed — just commit

@@ -131,7 +131,8 @@ def render_words_html(words):
         examples_html = "".join(
             f"<li>"
             f'<div class="ex-row"><span class="ex-hanzi">{e["hanzi"]}</span>'
-            f'<button class="speak-btn" data-text="{e["hanzi"]}">🔊</button></div>'
+            f'<button class="speak-btn" data-text="{e["hanzi"]}">🔊</button>'
+            f'<button class="speak-slow-btn" data-text="{e["hanzi"]}">🐢</button></div>'
             f'<span class="ex-pinyin">{e["pinyin"]}</span>'
             f'<span class="ex-trans">{e["translation"]}</span>'
             f"</li>"
@@ -142,6 +143,7 @@ def render_words_html(words):
     <span class="w-hanzi">{w["hanzi"]}</span>
     <span class="w-pinyin">{w["pinyin"]}</span>
     <button class="speak-btn" data-text="{w["hanzi"]}">🔊</button>
+    <button class="speak-slow-btn" data-text="{w["hanzi"]}">🐢</button>
     <button class="del-btn" data-hanzi="{w["hanzi"]}" title="Delete">✕</button>
   </div>
   <ol class="examples">{examples_html}</ol>
@@ -172,8 +174,8 @@ def render_words_html(words):
   .ex-hanzi {{ color: #111; font-size: 16px; }}
   .ex-pinyin {{ display: block; color: #e07b00; font-size: 16px; }}
   .ex-trans {{ display: block; color: #777; font-size: 16px; }}
-  .speak-btn {{ background: none; border: none; cursor: pointer; font-size: 14px; padding: 2px 4px; opacity: 0.6; }}
-  .speak-btn:hover {{ opacity: 1; }}
+  .speak-btn, .speak-slow-btn {{ background: none; border: none; cursor: pointer; font-size: 14px; padding: 2px 4px; opacity: 0.6; }}
+  .speak-btn:hover, .speak-slow-btn:hover {{ opacity: 1; }}
   .card-head {{ position: relative; }}
   .del-btn {{ margin-left: auto; background: none; border: none; cursor: pointer; font-size: 14px; color: #bbb; padding: 2px 4px; }}
   .del-btn:hover {{ color: #c0392b; }}
@@ -203,15 +205,18 @@ def render_words_html(words):
   <span class="add-status" id="add-status"></span>
 </div>
 <script>
-  function speak(text) {{
+  function speak(text, rate) {{
     const utt = new SpeechSynthesisUtterance(text);
     utt.lang = 'zh-CN';
-    utt.rate = 0.8;
+    utt.rate = rate || 0.8;
     speechSynthesis.cancel();
     speechSynthesis.speak(utt);
   }}
   document.querySelectorAll('.speak-btn').forEach(btn => {{
     btn.addEventListener('click', () => speak(btn.dataset.text));
+  }});
+  document.querySelectorAll('.speak-slow-btn').forEach(btn => {{
+    btn.addEventListener('click', () => speak(btn.dataset.text, 0.4));
   }});
 
   document.querySelectorAll('.del-btn').forEach(btn => {{
