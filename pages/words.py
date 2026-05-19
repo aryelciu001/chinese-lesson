@@ -67,6 +67,7 @@ def render(words):
 <header>
   <a href="/">← Scenarios</a>
   <h1>Words</h1>
+  <a href="/flashcards">Flashcards →</a>
 </header>
 <div class="grid">
 {cards}

@@ -4,9 +4,12 @@ import os
 from http.server import HTTPServer, BaseHTTPRequestHandler
 from urllib.parse import urlparse, parse_qs
 
+import random
+
 import db
 from pages import scenario as scenario_page
 from pages import words as words_page
+from pages import flashcards as flashcards_page
 
 AUDIO_DIR = os.path.join(os.path.dirname(__file__), "audio")
 
@@ -119,6 +122,12 @@ class Handler(BaseHTTPRequestHandler):
 
         if parsed.path == "/words":
             self._send_html(words_page.render(db.load_words()))
+            return
+
+        if parsed.path == "/flashcards":
+            all_words = db.load_words()
+            sample = random.sample(all_words, min(10, len(all_words)))
+            self._send_html(flashcards_page.render(sample))
             return
 
         scenarios = scenario_page.list_scenarios()
