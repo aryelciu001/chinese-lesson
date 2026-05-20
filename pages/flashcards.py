@@ -6,7 +6,7 @@ def render(words):
             f'<div class="ex-row"><span class="ex-hanzi">{e["hanzi"]}</span>'
             f'<button class="speak-btn" data-text="{e["hanzi"]}">🔊</button>'
             f'<button class="speak-slow-btn" data-text="{e["hanzi"]}">🐢</button></div>'
-            f'<span class="ex-pinyin">{e["pinyin"]}</span>'
+            f'<span class="ex-pinyin hidden">{e["pinyin"]}</span>'
             f'<span class="ex-trans">{e["translation"]}</span>'
             f"</li>"
             for e in w["examples"]
@@ -14,9 +14,10 @@ def render(words):
         cards += f"""<div class="card" data-hanzi="{w["hanzi"]}">
   <div class="card-head">
     <span class="w-hanzi">{w["hanzi"]}</span>
-    <span class="w-pinyin">{w["pinyin"]}</span>
+    <span class="w-pinyin hidden">{w["pinyin"]}</span>
     <button class="speak-btn" data-text="{w["hanzi"]}">🔊</button>
     <button class="speak-slow-btn" data-text="{w["hanzi"]}">🐢</button>
+    <button class="pinyin-toggle" title="Show pinyin">👁</button>
   </div>
   <ol class="examples">{examples_html}</ol>
 </div>"""
@@ -48,8 +49,19 @@ def render(words):
   .ex-trans {{ display: block; color: #777; font-size: 16px; }}
   .speak-btn, .speak-slow-btn {{ background: none; border: none; cursor: pointer; font-size: 14px; padding: 2px 4px; opacity: 0.6; }}
   .speak-btn:hover, .speak-slow-btn:hover {{ opacity: 1; }}
+  .pinyin-toggle {{ margin-left: auto; background: none; border: none; cursor: pointer; font-size: 14px; padding: 2px 4px; opacity: 0.4; }}
+  .pinyin-toggle:hover {{ opacity: 1; }}
+  .hidden {{ display: none !important; }}
   .shuffle-btn {{ margin-left: auto; font-size: 13px; padding: 6px 12px; border-radius: 6px; border: 1px solid #ccc; background: white; cursor: pointer; }}
   .shuffle-btn:hover {{ background: #f0f0f0; }}
+  .add-bar {{ position: fixed; bottom: 24px; right: 24px; display: flex; align-items: center; gap: 8px; background: white; border: 1px solid #ddd; border-radius: 12px; padding: 10px 14px; box-shadow: 0 4px 16px rgba(0,0,0,0.12); }}
+  .add-bar input {{ font-size: 18px; border: none; outline: none; width: 120px; background: transparent; }}
+  .add-bar button {{ font-size: 13px; padding: 4px 10px; border-radius: 6px; border: 1px solid #ccc; background: #f5f5f5; cursor: pointer; }}
+  .add-bar button:disabled {{ opacity: 0.5; cursor: default; }}
+  .add-status {{ font-size: 12px; color: #888; }}
+  .add-status.saved {{ color: #2a9d2a; }}
+  .add-status.exists {{ color: #888; }}
+  .add-status.err {{ color: #c0392b; }}
 </style>
 </head>
 <body>
@@ -62,6 +74,11 @@ def render(words):
 <div class="grid">
 {cards}
 </div>
+</div>
+<div class="add-bar">
+  <input id="add-input" type="text" placeholder="汉字…" autocomplete="off">
+  <button id="add-btn">Add</button>
+  <span class="add-status" id="add-status"></span>
 </div>
 <script>
   function speak(text, rate) {{
@@ -77,6 +94,57 @@ def render(words):
   document.querySelectorAll('.speak-slow-btn').forEach(btn => {{
     btn.addEventListener('click', () => speak(btn.dataset.text, 0.4));
   }});
+
+  document.querySelectorAll('.pinyin-toggle').forEach(btn => {{
+    btn.addEventListener('click', () => {{
+      const card = btn.closest('.card');
+      const pinyins = card.querySelectorAll('.w-pinyin, .ex-pinyin');
+      const hiding = !pinyins[0].classList.contains('hidden');
+      pinyins.forEach(el => el.classList.toggle('hidden', hiding));
+      btn.style.opacity = hiding ? '0.4' : '1';
+    }});
+  }});
+
+  const addInput = document.getElementById('add-input');
+  const addBtn = document.getElementById('add-btn');
+  const addStatus = document.getElementById('add-status');
+
+  async function addWord() {{
+    const hanzi = addInput.value.trim();
+    if (!hanzi) return;
+    addBtn.disabled = true;
+    addBtn.textContent = 'Adding…';
+    addStatus.textContent = '';
+    addStatus.className = 'add-status';
+    try {{
+      const res = await fetch('/api/add-word', {{
+        method: 'POST',
+        headers: {{'Content-Type': 'application/json'}},
+        body: JSON.stringify({{hanzi}})
+      }});
+      const data = await res.json();
+      if (data.status === 'added') {{
+        addStatus.textContent = 'Saved!';
+        addStatus.classList.add('saved');
+        addInput.value = '';
+      }} else if (data.status === 'exists') {{
+        addStatus.textContent = 'Already saved';
+        addStatus.classList.add('exists');
+      }} else {{
+        addStatus.textContent = data.message || 'Error';
+        addStatus.classList.add('err');
+      }}
+    }} catch(e) {{
+      addStatus.textContent = 'Error';
+      addStatus.classList.add('err');
+    }} finally {{
+      addBtn.disabled = false;
+      addBtn.textContent = 'Add';
+    }}
+  }}
+
+  addBtn.addEventListener('click', addWord);
+  addInput.addEventListener('keydown', e => {{ if (e.key === 'Enter') addWord(); }});
 </script>
 </body>
 </html>"""

@@ -13,8 +13,12 @@ def get_conn():
 
 
 def load_words():
-    with get_conn() as conn, conn.cursor(cursor_factory=psycopg2.extras.RealDictCursor) as cur:
-        cur.execute("SELECT id, hanzi, pinyin FROM words WHERE deleted_at IS NULL ORDER BY id DESC")
+    with get_conn() as conn, conn.cursor(
+        cursor_factory=psycopg2.extras.RealDictCursor
+    ) as cur:
+        cur.execute(
+            "SELECT id, hanzi, pinyin FROM words WHERE deleted_at IS NULL ORDER BY id DESC"
+        )
         rows = cur.fetchall()
         words = []
         for row in rows:
@@ -22,7 +26,13 @@ def load_words():
                 "SELECT hanzi, pinyin, translation FROM word_examples WHERE word_id = %s ORDER BY id",
                 (row["id"],),
             )
-            words.append({"hanzi": row["hanzi"], "pinyin": row["pinyin"], "examples": cur.fetchall()})
+            words.append(
+                {
+                    "hanzi": row["hanzi"],
+                    "pinyin": row["pinyin"],
+                    "examples": cur.fetchall(),
+                }
+            )
         return words
 
 
@@ -43,17 +53,24 @@ def save_word(hanzi, pinyin, examples):
 
 def word_exists(hanzi):
     with get_conn() as conn, conn.cursor() as cur:
-        cur.execute("SELECT 1 FROM words WHERE hanzi = %s AND deleted_at IS NULL", (hanzi,))
+        cur.execute(
+            "SELECT 1 FROM words WHERE hanzi = %s AND deleted_at IS NULL", (hanzi,)
+        )
         return cur.fetchone() is not None
 
 
 def import_words_json():
-    with open(os.path.join(os.path.dirname(__file__), "words.json"), encoding="utf-8") as f:
+    with open(
+        os.path.join(os.path.dirname(__file__), "words.json"), encoding="utf-8"
+    ) as f:
         words = json.load(f)
     inserted = skipped = 0
     with get_conn() as conn, conn.cursor() as cur:
         for w in words:
-            cur.execute("SELECT 1 FROM words WHERE hanzi = %s AND deleted_at IS NULL", (w["hanzi"],))
+            cur.execute(
+                "SELECT 1 FROM words WHERE hanzi = %s AND deleted_at IS NULL",
+                (w["hanzi"],),
+            )
             if cur.fetchone():
                 skipped += 1
                 continue
@@ -85,7 +102,7 @@ def generate_word_data(hanzi):
         "Line 8: example sentence 1 (english translation)\n"
         "Line 9: example sentence 2 (english translation)\n"
         "Line 10: example sentence 3 (english translation)\n"
-        "Examples must be natural, contextually rich sentences (HSK 4-6 level), ordered simple to complex."
+        "Examples must be natural and used in daily conversation (HSK 4-5 level)"
     )
     result = subprocess.run(
         ["claude", "-p", prompt], capture_output=True, text=True, timeout=60
