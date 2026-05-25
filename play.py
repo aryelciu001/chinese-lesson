@@ -1,6 +1,7 @@
 #!/usr/bin/env python3
 import json
 import os
+import re
 import subprocess
 import sys
 import tempfile
@@ -13,6 +14,22 @@ PAUSE = {
     "……": "[[slnc 800]]",
     "；": "[[slnc 400]]",
 }
+
+def build_text_from_md(path):
+    text = open(path, encoding="utf-8").read()
+    match = re.search(r"### Hanzi\s*\n(.*?)\n---", text, re.DOTALL)
+    hanzi = match.group(1).strip() if match else ""
+    parts = []
+    for line in hanzi.splitlines():
+        line = line.strip()
+        if not line:
+            continue
+        # insert pauses for sentence-ending punctuation
+        for ch, pause in PAUSE.items():
+            line = line.replace(ch, ch + " " + pause + " ")
+        parts.append(line)
+    return " [[slnc 700]] ".join(parts)
+
 
 def build_text(words):
     parts = []
@@ -32,17 +49,21 @@ def build_text(words):
     return " [[slnc 700]] ".join(parts)
 
 
-def play(path, rate=120, voice="Tingting"):
+def get_text(path):
+    if path.endswith(".md"):
+        return build_text_from_md(path)
     with open(path, encoding="utf-8") as f:
         words = json.load(f)
-    text = build_text(words)
+    return build_text(words)
+
+
+def play(path, rate=120, voice="Tingting"):
+    text = get_text(path)
     subprocess.run(["say", "-v", voice, "-r", str(rate), text], check=True)
 
 
 def export(path, output, rate=120, voice="Tingting"):
-    with open(path, encoding="utf-8") as f:
-        words = json.load(f)
-    text = build_text(words)
+    text = get_text(path)
 
     aiff_fd, aiff_path = tempfile.mkstemp(suffix=".aiff")
     os.close(aiff_fd)
