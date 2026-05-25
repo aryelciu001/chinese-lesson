@@ -1,0 +1,647 @@
+[
+  {
+    "hanzi": "A：",
+    "pinyin": "A：",
+    "translation": "A:"
+  },
+  {
+    "hanzi": "你好，",
+    "pinyin": "nǐ hǎo，",
+    "translation": "hello,"
+  },
+  {
+    "hanzi": "我",
+    "pinyin": "wǒ",
+    "translation": "I"
+  },
+  {
+    "hanzi": "想",
+    "pinyin": "xiǎng",
+    "translation": "want to"
+  },
+  {
+    "hanzi": "换",
+    "pinyin": "huàn",
+    "translation": "exchange"
+  },
+  {
+    "hanzi": "一些",
+    "pinyin": "yīxiē",
+    "translation": "some"
+  },
+  {
+    "hanzi": "人民币，",
+    "pinyin": "rénmínbì，",
+    "translation": "RMB,"
+  },
+  {
+    "hanzi": "请问",
+    "pinyin": "qǐng wèn",
+    "translation": "excuse me"
+  },
+  {
+    "hanzi": "这里",
+    "pinyin": "zhèlǐ",
+    "translation": "here"
+  },
+  {
+    "hanzi": "可以",
+    "pinyin": "kěyǐ",
+    "translation": "can"
+  },
+  {
+    "hanzi": "换",
+    "pinyin": "huàn",
+    "translation": "exchange"
+  },
+  {
+    "hanzi": "吗？",
+    "pinyin": "ma？",
+    "translation": "(question)?"
+  },
+  {
+    "hanzi": "\n",
+    "pinyin": "",
+    "translation": ""
+  },
+  {
+    "hanzi": "B：",
+    "pinyin": "B：",
+    "translation": "B:"
+  },
+  {
+    "hanzi": "可以的，",
+    "pinyin": "kěyǐ de，",
+    "translation": "yes we can,"
+  },
+  {
+    "hanzi": "请问",
+    "pinyin": "qǐng wèn",
+    "translation": "may I ask"
+  },
+  {
+    "hanzi": "你",
+    "pinyin": "nǐ",
+    "translation": "you"
+  },
+  {
+    "hanzi": "有",
+    "pinyin": "yǒu",
+    "translation": "have"
+  },
+  {
+    "hanzi": "什么",
+    "pinyin": "shénme",
+    "translation": "what"
+  },
+  {
+    "hanzi": "外币？",
+    "pinyin": "wàibì？",
+    "translation": "foreign currency?"
+  },
+  {
+    "hanzi": "\n",
+    "pinyin": "",
+    "translation": ""
+  },
+  {
+    "hanzi": "A：",
+    "pinyin": "A：",
+    "translation": "A:"
+  },
+  {
+    "hanzi": "我",
+    "pinyin": "wǒ",
+    "translation": "I"
+  },
+  {
+    "hanzi": "有",
+    "pinyin": "yǒu",
+    "translation": "have"
+  },
+  {
+    "hanzi": "美元，",
+    "pinyin": "měiyuán，",
+    "translation": "US dollars,"
+  },
+  {
+    "hanzi": "大概",
+    "pinyin": "dàgài",
+    "translation": "about"
+  },
+  {
+    "hanzi": "三百",
+    "pinyin": "sānbǎi",
+    "translation": "three hundred"
+  },
+  {
+    "hanzi": "美元。",
+    "pinyin": "měiyuán。",
+    "translation": "US dollars."
+  },
+  {
+    "hanzi": "\n",
+    "pinyin": "",
+    "translation": ""
+  },
+  {
+    "hanzi": "B：",
+    "pinyin": "B：",
+    "translation": "B:"
+  },
+  {
+    "hanzi": "好的，",
+    "pinyin": "hǎo de，",
+    "translation": "okay,"
+  },
+  {
+    "hanzi": "今天",
+    "pinyin": "jīntiān",
+    "translation": "today"
+  },
+  {
+    "hanzi": "的",
+    "pinyin": "de",
+    "translation": "'s"
+  },
+  {
+    "hanzi": "汇率",
+    "pinyin": "huìlǜ",
+    "translation": "exchange rate"
+  },
+  {
+    "hanzi": "是",
+    "pinyin": "shì",
+    "translation": "is"
+  },
+  {
+    "hanzi": "一",
+    "pinyin": "yī",
+    "translation": "one"
+  },
+  {
+    "hanzi": "美元",
+    "pinyin": "měiyuán",
+    "translation": "US dollar"
+  },
+  {
+    "hanzi": "兑换",
+    "pinyin": "duìhuàn",
+    "translation": "exchange for"
+  },
+  {
+    "hanzi": "七点二五",
+    "pinyin": "qī diǎn èr wǔ",
+    "translation": "7.25"
+  },
+  {
+    "hanzi": "人民币。",
+    "pinyin": "rénmínbì。",
+    "translation": "RMB."
+  },
+  {
+    "hanzi": "\n",
+    "pinyin": "",
+    "translation": ""
+  },
+  {
+    "hanzi": "A：",
+    "pinyin": "A：",
+    "translation": "A:"
+  },
+  {
+    "hanzi": "那",
+    "pinyin": "nà",
+    "translation": "then"
+  },
+  {
+    "hanzi": "三百",
+    "pinyin": "sānbǎi",
+    "translation": "three hundred"
+  },
+  {
+    "hanzi": "美元",
+    "pinyin": "měiyuán",
+    "translation": "US dollars"
+  },
+  {
+    "hanzi": "可以",
+    "pinyin": "kěyǐ",
+    "translation": "can"
+  },
+  {
+    "hanzi": "换",
+    "pinyin": "huàn",
+    "translation": "exchange for"
+  },
+  {
+    "hanzi": "多少",
+    "pinyin": "duōshǎo",
+    "translation": "how much"
+  },
+  {
+    "hanzi": "人民币？",
+    "pinyin": "rénmínbì？",
+    "translation": "RMB?"
+  },
+  {
+    "hanzi": "\n",
+    "pinyin": "",
+    "translation": ""
+  },
+  {
+    "hanzi": "B：",
+    "pinyin": "B：",
+    "translation": "B:"
+  },
+  {
+    "hanzi": "大概",
+    "pinyin": "dàgài",
+    "translation": "about"
+  },
+  {
+    "hanzi": "是",
+    "pinyin": "shì",
+    "translation": "is"
+  },
+  {
+    "hanzi": "两千一百七十五",
+    "pinyin": "liǎng qiān yī bǎi qī shí wǔ",
+    "translation": "2,175"
+  },
+  {
+    "hanzi": "块钱。",
+    "pinyin": "kuài qián。",
+    "translation": "yuan."
+  },
+  {
+    "hanzi": "\n",
+    "pinyin": "",
+    "translation": ""
+  },
+  {
+    "hanzi": "A：",
+    "pinyin": "A：",
+    "translation": "A:"
+  },
+  {
+    "hanzi": "好的，",
+    "pinyin": "hǎo de，",
+    "translation": "okay,"
+  },
+  {
+    "hanzi": "那",
+    "pinyin": "nà",
+    "translation": "then"
+  },
+  {
+    "hanzi": "我",
+    "pinyin": "wǒ",
+    "translation": "I"
+  },
+  {
+    "hanzi": "换",
+    "pinyin": "huàn",
+    "translation": "exchange"
+  },
+  {
+    "hanzi": "三百",
+    "pinyin": "sānbǎi",
+    "translation": "three hundred"
+  },
+  {
+    "hanzi": "美元。",
+    "pinyin": "měiyuán。",
+    "translation": "US dollars."
+  },
+  {
+    "hanzi": "需要",
+    "pinyin": "xūyào",
+    "translation": "need"
+  },
+  {
+    "hanzi": "什么",
+    "pinyin": "shénme",
+    "translation": "what"
+  },
+  {
+    "hanzi": "证件",
+    "pinyin": "zhèngjiàn",
+    "translation": "documents"
+  },
+  {
+    "hanzi": "吗？",
+    "pinyin": "ma？",
+    "translation": "(question)?"
+  },
+  {
+    "hanzi": "\n",
+    "pinyin": "",
+    "translation": ""
+  },
+  {
+    "hanzi": "B：",
+    "pinyin": "B：",
+    "translation": "B:"
+  },
+  {
+    "hanzi": "需要",
+    "pinyin": "xūyào",
+    "translation": "need"
+  },
+  {
+    "hanzi": "你",
+    "pinyin": "nǐ",
+    "translation": "your"
+  },
+  {
+    "hanzi": "的",
+    "pinyin": "de",
+    "translation": "'s"
+  },
+  {
+    "hanzi": "护照，",
+    "pinyin": "hùzhào，",
+    "translation": "passport,"
+  },
+  {
+    "hanzi": "麻烦",
+    "pinyin": "máfan",
+    "translation": "please"
+  },
+  {
+    "hanzi": "出示",
+    "pinyin": "chūshì",
+    "translation": "show"
+  },
+  {
+    "hanzi": "一下。",
+    "pinyin": "yīxià。",
+    "translation": "a moment."
+  },
+  {
+    "hanzi": "\n",
+    "pinyin": "",
+    "translation": ""
+  },
+  {
+    "hanzi": "A：",
+    "pinyin": "A：",
+    "translation": "A:"
+  },
+  {
+    "hanzi": "好，",
+    "pinyin": "hǎo，",
+    "translation": "okay,"
+  },
+  {
+    "hanzi": "给你。",
+    "pinyin": "gěi nǐ。",
+    "translation": "here you go."
+  },
+  {
+    "hanzi": "\n",
+    "pinyin": "",
+    "translation": ""
+  },
+  {
+    "hanzi": "B：",
+    "pinyin": "B：",
+    "translation": "B:"
+  },
+  {
+    "hanzi": "谢谢。",
+    "pinyin": "xièxie。",
+    "translation": "thank you."
+  },
+  {
+    "hanzi": "请",
+    "pinyin": "qǐng",
+    "translation": "please"
+  },
+  {
+    "hanzi": "稍等，",
+    "pinyin": "shāo děng，",
+    "translation": "wait a moment,"
+  },
+  {
+    "hanzi": "我",
+    "pinyin": "wǒ",
+    "translation": "I"
+  },
+  {
+    "hanzi": "来",
+    "pinyin": "lái",
+    "translation": "will"
+  },
+  {
+    "hanzi": "点",
+    "pinyin": "diǎn",
+    "translation": "count"
+  },
+  {
+    "hanzi": "一下",
+    "pinyin": "yīxià",
+    "translation": "once"
+  },
+  {
+    "hanzi": "钱。",
+    "pinyin": "qián。",
+    "translation": "the money."
+  },
+  {
+    "hanzi": "\n",
+    "pinyin": "",
+    "translation": ""
+  },
+  {
+    "hanzi": "A：",
+    "pinyin": "A：",
+    "translation": "A:"
+  },
+  {
+    "hanzi": "好的，",
+    "pinyin": "hǎo de，",
+    "translation": "okay,"
+  },
+  {
+    "hanzi": "不",
+    "pinyin": "bù",
+    "translation": "no"
+  },
+  {
+    "hanzi": "着急。",
+    "pinyin": "zháojí。",
+    "translation": "hurry."
+  },
+  {
+    "hanzi": "\n",
+    "pinyin": "",
+    "translation": ""
+  },
+  {
+    "hanzi": "B：",
+    "pinyin": "B：",
+    "translation": "B:"
+  },
+  {
+    "hanzi": "好了，",
+    "pinyin": "hǎo le，",
+    "translation": "alright,"
+  },
+  {
+    "hanzi": "这",
+    "pinyin": "zhè",
+    "translation": "this"
+  },
+  {
+    "hanzi": "是",
+    "pinyin": "shì",
+    "translation": "is"
+  },
+  {
+    "hanzi": "你",
+    "pinyin": "nǐ",
+    "translation": "your"
+  },
+  {
+    "hanzi": "的",
+    "pinyin": "de",
+    "translation": "'s"
+  },
+  {
+    "hanzi": "两千一百七十五元，",
+    "pinyin": "liǎng qiān yī bǎi qī shí wǔ yuán，",
+    "translation": "2,175 yuan,"
+  },
+  {
+    "hanzi": "请",
+    "pinyin": "qǐng",
+    "translation": "please"
+  },
+  {
+    "hanzi": "点",
+    "pinyin": "diǎn",
+    "translation": "count"
+  },
+  {
+    "hanzi": "一下。",
+    "pinyin": "yīxià。",
+    "translation": "once."
+  },
+  {
+    "hanzi": "\n",
+    "pinyin": "",
+    "translation": ""
+  },
+  {
+    "hanzi": "A：",
+    "pinyin": "A：",
+    "translation": "A:"
+  },
+  {
+    "hanzi": "好，",
+    "pinyin": "hǎo，",
+    "translation": "okay,"
+  },
+  {
+    "hanzi": "一、",
+    "pinyin": "yī、",
+    "translation": "one,"
+  },
+  {
+    "hanzi": "二……",
+    "pinyin": "èr……",
+    "translation": "two..."
+  },
+  {
+    "hanzi": "对的，",
+    "pinyin": "duì de，",
+    "translation": "correct,"
+  },
+  {
+    "hanzi": "没问题。",
+    "pinyin": "méi wèntí。",
+    "translation": "no problem."
+  },
+  {
+    "hanzi": "谢谢！",
+    "pinyin": "xièxie！",
+    "translation": "thank you!"
+  },
+  {
+    "hanzi": "\n",
+    "pinyin": "",
+    "translation": ""
+  },
+  {
+    "hanzi": "B：",
+    "pinyin": "B：",
+    "translation": "B:"
+  },
+  {
+    "hanzi": "不客气。",
+    "pinyin": "bù kèqi。",
+    "translation": "you're welcome."
+  },
+  {
+    "hanzi": "请",
+    "pinyin": "qǐng",
+    "translation": "please"
+  },
+  {
+    "hanzi": "收好",
+    "pinyin": "shōu hǎo",
+    "translation": "keep safe"
+  },
+  {
+    "hanzi": "你",
+    "pinyin": "nǐ",
+    "translation": "your"
+  },
+  {
+    "hanzi": "的",
+    "pinyin": "de",
+    "translation": "'s"
+  },
+  {
+    "hanzi": "护照",
+    "pinyin": "hùzhào",
+    "translation": "passport"
+  },
+  {
+    "hanzi": "和",
+    "pinyin": "hé",
+    "translation": "and"
+  },
+  {
+    "hanzi": "收据。",
+    "pinyin": "shōujù。",
+    "translation": "receipt."
+  },
+  {
+    "hanzi": "\n",
+    "pinyin": "",
+    "translation": ""
+  },
+  {
+    "hanzi": "A：",
+    "pinyin": "A：",
+    "translation": "A:"
+  },
+  {
+    "hanzi": "好的，",
+    "pinyin": "hǎo de，",
+    "translation": "okay,"
+  },
+  {
+    "hanzi": "谢谢",
+    "pinyin": "xièxie",
+    "translation": "thank you"
+  },
+  {
+    "hanzi": "你！",
+    "pinyin": "nǐ！",
+    "translation": "you!"
+  }
+]

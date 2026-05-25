@@ -1,0 +1,129 @@
+A：|A：|A:
+你好，|nǐ hǎo，|hello,
+我|wǒ|I
+想|xiǎng|want to
+换|huàn|exchange
+一些|yīxiē|some
+人民币，|rénmínbì，|RMB,
+请问|qǐng wèn|excuse me
+这里|zhèlǐ|here
+可以|kěyǐ|can
+换|huàn|exchange
+吗？|ma？|(question)?
+<newline>
+B：|B：|B:
+可以的，|kěyǐ de，|yes we can,
+请问|qǐng wèn|may I ask
+你|nǐ|you
+有|yǒu|have
+什么|shénme|what
+外币？|wàibì？|foreign currency?
+<newline>
+A：|A：|A:
+我|wǒ|I
+有|yǒu|have
+美元，|měiyuán，|US dollars,
+大概|dàgài|about
+三百|sānbǎi|three hundred
+美元。|měiyuán。|US dollars.
+<newline>
+B：|B：|B:
+好的，|hǎo de，|okay,
+今天|jīntiān|today
+的|de|'s
+汇率|huìlǜ|exchange rate
+是|shì|is
+一|yī|one
+美元|měiyuán|US dollar
+兑换|duìhuàn|exchange for
+七点二五|qī diǎn èr wǔ|7.25
+人民币。|rénmínbì。|RMB.
+<newline>
+A：|A：|A:
+那|nà|then
+三百|sānbǎi|three hundred
+美元|měiyuán|US dollars
+可以|kěyǐ|can
+换|huàn|exchange for
+多少|duōshǎo|how much
+人民币？|rénmínbì？|RMB?
+<newline>
+B：|B：|B:
+大概|dàgài|about
+是|shì|is
+两千一百七十五|liǎng qiān yī bǎi qī shí wǔ|2,175
+块钱。|kuài qián。|yuan.
+<newline>
+A：|A：|A:
+好的，|hǎo de，|okay,
+那|nà|then
+我|wǒ|I
+换|huàn|exchange
+三百|sānbǎi|three hundred
+美元。|měiyuán。|US dollars.
+需要|xūyào|need
+什么|shénme|what
+证件|zhèngjiàn|documents
+吗？|ma？|(question)?
+<newline>
+B：|B：|B:
+需要|xūyào|need
+你|nǐ|your
+的|de|'s
+护照，|hùzhào，|passport,
+麻烦|máfan|please
+出示|chūshì|show
+一下。|yīxià。|a moment.
+<newline>
+A：|A：|A:
+好，|hǎo，|okay,
+给你。|gěi nǐ。|here you go.
+<newline>
+B：|B：|B:
+谢谢。|xièxie。|thank you.
+请|qǐng|please
+稍等，|shāo děng，|wait a moment,
+我|wǒ|I
+来|lái|will
+点|diǎn|count
+一下|yīxià|once
+钱。|qián。|the money.
+<newline>
+A：|A：|A:
+好的，|hǎo de，|okay,
+不|bù|no
+着急。|zháojí。|hurry.
+<newline>
+B：|B：|B:
+好了，|hǎo le，|alright,
+这|zhè|this
+是|shì|is
+你|nǐ|your
+的|de|'s
+两千一百七十五元，|liǎng qiān yī bǎi qī shí wǔ yuán，|2,175 yuan,
+请|qǐng|please
+点|diǎn|count
+一下。|yīxià。|once.
+<newline>
+A：|A：|A:
+好，|hǎo，|okay,
+一、|yī、|one,
+二……|èr……|two...
+对的，|duì de，|correct,
+没问题。|méi wèntí。|no problem.
+谢谢！|xièxie！|thank you!
+<newline>
+B：|B：|B:
+不客气。|bù kèqi。|you're welcome.
+请|qǐng|please
+收好|shōu hǎo|keep safe
+你|nǐ|your
+的|de|'s
+护照|hùzhào|passport
+和|hé|and
+收据。|shōujù。|receipt.
+<newline>
+A：|A：|A:
+好的，|hǎo de，|okay,
+谢谢|xièxie|thank you
+你！|nǐ！|you!
