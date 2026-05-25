@@ -49,9 +49,23 @@ def build_text(words):
     return " [[slnc 700]] ".join(parts)
 
 
+def build_text_from_txt(path):
+    parts = []
+    for line in open(path, encoding="utf-8").read().splitlines():
+        line = line.strip()
+        if not line:
+            continue
+        for ch, pause in PAUSE.items():
+            line = line.replace(ch, ch + " " + pause + " ")
+        parts.append(line)
+    return " [[slnc 700]] ".join(parts)
+
+
 def get_text(path):
     if path.endswith(".md"):
         return build_text_from_md(path)
+    if path.endswith(".txt"):
+        return build_text_from_txt(path)
     with open(path, encoding="utf-8") as f:
         words = json.load(f)
     return build_text(words)

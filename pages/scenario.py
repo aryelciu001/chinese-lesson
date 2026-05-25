@@ -1,7 +1,7 @@
 import json
 import os
 
-PARSED_DIR = os.path.join(os.path.dirname(__file__), "..", "scenarios-parsed")
+PARSED_DIR = os.path.join(os.path.dirname(__file__), "..", "transcription-parsed")
 
 
 def load_scenario(name):
@@ -99,7 +99,7 @@ def render(scenario_name, words, show_pinyin, show_translation):
       <input type="checkbox" id="toggle-translation" {trans_checked}> Translation
     </label>
   </div>
-  <audio controls src="/audio/{scenario_name}.m4a"></audio>
+  <audio controls src="/transcription-audio/{scenario_name}.m4a"></audio>
   <a href="/words">Words →</a>
 </header>
 <div class="popup-overlay" id="overlay">

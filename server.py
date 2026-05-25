@@ -11,7 +11,7 @@ from pages import scenario as scenario_page
 from pages import words as words_page
 from pages import flashcards as flashcards_page
 
-AUDIO_DIR = os.path.join(os.path.dirname(__file__), "audio")
+AUDIO_DIR = os.path.join(os.path.dirname(__file__), "transcription-audio")
 
 
 class Handler(BaseHTTPRequestHandler):
@@ -54,7 +54,9 @@ class Handler(BaseHTTPRequestHandler):
         elif self.path == "/api/import-words":
             try:
                 inserted, skipped = db.import_words_json()
-                self._send_json({"status": "ok", "inserted": inserted, "skipped": skipped})
+                self._send_json(
+                    {"status": "ok", "inserted": inserted, "skipped": skipped}
+                )
             except Exception as e:
                 self._send_json({"status": "error", "message": str(e)}, 500)
         elif self.path == "/api/delete-word":
@@ -86,7 +88,7 @@ class Handler(BaseHTTPRequestHandler):
         parsed = urlparse(self.path)
         qs = parse_qs(parsed.query)
 
-        if parsed.path.startswith("/audio/"):
+        if parsed.path.startswith("/transcription-audio/"):
             audio_path = os.path.join(AUDIO_DIR, os.path.basename(parsed.path))
             if not os.path.exists(audio_path):
                 self.send_response(404)
@@ -142,7 +144,9 @@ class Handler(BaseHTTPRequestHandler):
             self.end_headers()
             return
 
-        self._send_html(scenario_page.render(scenario_name, words, show_pinyin, show_translation))
+        self._send_html(
+            scenario_page.render(scenario_name, words, show_pinyin, show_translation)
+        )
 
 
 if __name__ == "__main__":
