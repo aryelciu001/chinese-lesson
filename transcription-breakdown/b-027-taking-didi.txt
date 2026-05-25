@@ -1,0 +1,102 @@
+A：|A：|A:
+你好，|nǐ hǎo，|hello,
+我刚刚|wǒ gāng gāng|I just
+在滴滴上|zài Dī Dī shàng|on Didi
+叫了你，|jiào le nǐ，|called for you,
+请问|qǐng wèn|excuse me
+你是|nǐ shì|are you
+张师傅吗？|Zhāng shīfu ma？|Driver Zhang?
+<newline>
+B：|B：|B:
+对对对，|duì duì duì，|yes yes yes,
+我是张师傅。|wǒ shì Zhāng shīfu。|I am Driver Zhang.
+你要去哪里？|nǐ yào qù nǎlǐ？|where do you want to go?
+<newline>
+A：|A：|A:
+我要去|wǒ yào qù|I want to go to
+国贸地铁站，|Guómào dìtiě zhàn，|Guomao subway station,
+大概|dàgài|about
+多久|duō jiǔ|how long
+能到？|néng dào？|will it take?
+<newline>
+B：|B：|B:
+现在|xiànzài|right now
+路上|lù shàng|on the road
+有点堵，|yǒudiǎn dǔ，|is a bit congested,
+大概要|dàgài yào|it will take about
+二十分钟左右。|èrshí fēnzhōng zuǒyòu。|around twenty minutes.
+<newline>
+A：|A：|A:
+好的，没关系。|hǎo de，méi guānxi。|okay, no problem.
+麻烦你|máfan nǐ|please
+开导航吧。|kāi dǎoháng ba。|turn on the navigation.
+<newline>
+B：|B：|B:
+已经开了。|yǐjīng kāi le。|it's already on.
+你是|nǐ shì|is this
+第一次|dì yī cì|the first time
+来北京吗？|lái Běijīng ma？|you've been to Beijing?
+<newline>
+A：|A：|A:
+不是，|bú shì，|no,
+我来北京|wǒ lái Běijīng|I come to Beijing
+出差，|chū chāi，|on business trips,
+已经来了|yǐjīng lái le|I've already been here
+好几次了。|hǎo jǐ cì le。|quite a few times.
+<newline>
+B：|B：|B:
+哦，|ó，|oh,
+那你应该|nà nǐ yīnggāi|then you should
+挺熟悉的。|tǐng shúxī de。|be quite familiar with it.
+国贸那边|Guómào nà biān|that area around Guomao
+经常堵车，|jīngcháng dǔ chē，|often has traffic jams,
+尤其是|yóuqí shì|especially
+下班高峰期。|xià bān gāofēng qī。|during rush hour after work.
+<newline>
+A：|A：|A:
+是啊，|shì a，|yeah,
+北京的交通|Běijīng de jiāotōng|Beijing's traffic
+真的很复杂。|zhēn de hěn fùzá。|is really very complicated.
+对了，|duì le，|by the way,
+我可以|wǒ kěyǐ|can I
+打开车窗吗？|dǎkāi chēchuāng ma？|open the car window?
+有点热。|yǒudiǎn rè。|it's a bit hot.
+<newline>
+B：|B：|B:
+当然可以，|dāngrán kěyǐ，|of course you can,
+你随便。|nǐ suíbiàn。|feel free.
+空调|kōngtiáo|the air conditioning
+也可以调一下，|yě kěyǐ tiáo yīxià，|can also be adjusted,
+你自己来。|nǐ zìjǐ lái。|do it yourself.
+<newline>
+A：|A：|A:
+谢谢师傅。|xièxie shīfu。|thank you, driver.
+到了之后|dào le zhīhòu|after we arrive
+我用支付宝|wǒ yòng Zhīfùbǎo|I'll pay with Alipay
+付款|fùkuǎn|make the payment
+可以吗？|kěyǐ ma？|is that okay?
+<newline>
+B：|B：|B:
+可以的，|kěyǐ de，|yes, that's fine,
+支付宝、|Zhīfùbǎo、|Alipay,
+微信|Wēixìn|WeChat
+都行。|dōu xíng。|both work.
+<newline>
+A：|A：|A:
+好的，|hǎo de，|okay,
+太方便了。|tài fāngbiàn le。|that's so convenient.
+<newline>
+B：|B：|B:
+到了，|dào le，|we're here,
+国贸地铁站到了。|Guómào dìtiě zhàn dào le。|we've arrived at Guomao subway station.
+请拿好|qǐng ná hǎo|please take
+你的东西。|nǐ de dōngxi。|your belongings.
+<newline>
+A：|A：|A:
+谢谢师傅，|xièxie shīfu，|thank you, driver,
+辛苦了！|xīnkǔ le！|you've worked hard!
+<newline>
+B：|B：|B:
+不客气，|bù kèqi，|you're welcome,
+祝你|zhù nǐ|I wish you
+一切顺利！|yīqiè shùnlì！|all the best!

@@ -1,0 +1,512 @@
+[
+  {
+    "hanzi": "A：",
+    "pinyin": "A：",
+    "translation": "A:"
+  },
+  {
+    "hanzi": "你好，",
+    "pinyin": "nǐ hǎo，",
+    "translation": "hello,"
+  },
+  {
+    "hanzi": "我刚刚",
+    "pinyin": "wǒ gāng gāng",
+    "translation": "I just"
+  },
+  {
+    "hanzi": "在滴滴上",
+    "pinyin": "zài Dī Dī shàng",
+    "translation": "on Didi"
+  },
+  {
+    "hanzi": "叫了你，",
+    "pinyin": "jiào le nǐ，",
+    "translation": "called for you,"
+  },
+  {
+    "hanzi": "请问",
+    "pinyin": "qǐng wèn",
+    "translation": "excuse me"
+  },
+  {
+    "hanzi": "你是",
+    "pinyin": "nǐ shì",
+    "translation": "are you"
+  },
+  {
+    "hanzi": "张师傅吗？",
+    "pinyin": "Zhāng shīfu ma？",
+    "translation": "Driver Zhang?"
+  },
+  {
+    "hanzi": "\n",
+    "pinyin": "",
+    "translation": ""
+  },
+  {
+    "hanzi": "B：",
+    "pinyin": "B：",
+    "translation": "B:"
+  },
+  {
+    "hanzi": "对对对，",
+    "pinyin": "duì duì duì，",
+    "translation": "yes yes yes,"
+  },
+  {
+    "hanzi": "我是张师傅。",
+    "pinyin": "wǒ shì Zhāng shīfu。",
+    "translation": "I am Driver Zhang."
+  },
+  {
+    "hanzi": "你要去哪里？",
+    "pinyin": "nǐ yào qù nǎlǐ？",
+    "translation": "where do you want to go?"
+  },
+  {
+    "hanzi": "\n",
+    "pinyin": "",
+    "translation": ""
+  },
+  {
+    "hanzi": "A：",
+    "pinyin": "A：",
+    "translation": "A:"
+  },
+  {
+    "hanzi": "我要去",
+    "pinyin": "wǒ yào qù",
+    "translation": "I want to go to"
+  },
+  {
+    "hanzi": "国贸地铁站，",
+    "pinyin": "Guómào dìtiě zhàn，",
+    "translation": "Guomao subway station,"
+  },
+  {
+    "hanzi": "大概",
+    "pinyin": "dàgài",
+    "translation": "about"
+  },
+  {
+    "hanzi": "多久",
+    "pinyin": "duō jiǔ",
+    "translation": "how long"
+  },
+  {
+    "hanzi": "能到？",
+    "pinyin": "néng dào？",
+    "translation": "will it take?"
+  },
+  {
+    "hanzi": "\n",
+    "pinyin": "",
+    "translation": ""
+  },
+  {
+    "hanzi": "B：",
+    "pinyin": "B：",
+    "translation": "B:"
+  },
+  {
+    "hanzi": "现在",
+    "pinyin": "xiànzài",
+    "translation": "right now"
+  },
+  {
+    "hanzi": "路上",
+    "pinyin": "lù shàng",
+    "translation": "on the road"
+  },
+  {
+    "hanzi": "有点堵，",
+    "pinyin": "yǒudiǎn dǔ，",
+    "translation": "is a bit congested,"
+  },
+  {
+    "hanzi": "大概要",
+    "pinyin": "dàgài yào",
+    "translation": "it will take about"
+  },
+  {
+    "hanzi": "二十分钟左右。",
+    "pinyin": "èrshí fēnzhōng zuǒyòu。",
+    "translation": "around twenty minutes."
+  },
+  {
+    "hanzi": "\n",
+    "pinyin": "",
+    "translation": ""
+  },
+  {
+    "hanzi": "A：",
+    "pinyin": "A：",
+    "translation": "A:"
+  },
+  {
+    "hanzi": "好的，没关系。",
+    "pinyin": "hǎo de，méi guānxi。",
+    "translation": "okay, no problem."
+  },
+  {
+    "hanzi": "麻烦你",
+    "pinyin": "máfan nǐ",
+    "translation": "please"
+  },
+  {
+    "hanzi": "开导航吧。",
+    "pinyin": "kāi dǎoháng ba。",
+    "translation": "turn on the navigation."
+  },
+  {
+    "hanzi": "\n",
+    "pinyin": "",
+    "translation": ""
+  },
+  {
+    "hanzi": "B：",
+    "pinyin": "B：",
+    "translation": "B:"
+  },
+  {
+    "hanzi": "已经开了。",
+    "pinyin": "yǐjīng kāi le。",
+    "translation": "it's already on."
+  },
+  {
+    "hanzi": "你是",
+    "pinyin": "nǐ shì",
+    "translation": "is this"
+  },
+  {
+    "hanzi": "第一次",
+    "pinyin": "dì yī cì",
+    "translation": "the first time"
+  },
+  {
+    "hanzi": "来北京吗？",
+    "pinyin": "lái Běijīng ma？",
+    "translation": "you've been to Beijing?"
+  },
+  {
+    "hanzi": "\n",
+    "pinyin": "",
+    "translation": ""
+  },
+  {
+    "hanzi": "A：",
+    "pinyin": "A：",
+    "translation": "A:"
+  },
+  {
+    "hanzi": "不是，",
+    "pinyin": "bú shì，",
+    "translation": "no,"
+  },
+  {
+    "hanzi": "我来北京",
+    "pinyin": "wǒ lái Běijīng",
+    "translation": "I come to Beijing"
+  },
+  {
+    "hanzi": "出差，",
+    "pinyin": "chū chāi，",
+    "translation": "on business trips,"
+  },
+  {
+    "hanzi": "已经来了",
+    "pinyin": "yǐjīng lái le",
+    "translation": "I've already been here"
+  },
+  {
+    "hanzi": "好几次了。",
+    "pinyin": "hǎo jǐ cì le。",
+    "translation": "quite a few times."
+  },
+  {
+    "hanzi": "\n",
+    "pinyin": "",
+    "translation": ""
+  },
+  {
+    "hanzi": "B：",
+    "pinyin": "B：",
+    "translation": "B:"
+  },
+  {
+    "hanzi": "哦，",
+    "pinyin": "ó，",
+    "translation": "oh,"
+  },
+  {
+    "hanzi": "那你应该",
+    "pinyin": "nà nǐ yīnggāi",
+    "translation": "then you should"
+  },
+  {
+    "hanzi": "挺熟悉的。",
+    "pinyin": "tǐng shúxī de。",
+    "translation": "be quite familiar with it."
+  },
+  {
+    "hanzi": "国贸那边",
+    "pinyin": "Guómào nà biān",
+    "translation": "that area around Guomao"
+  },
+  {
+    "hanzi": "经常堵车，",
+    "pinyin": "jīngcháng dǔ chē，",
+    "translation": "often has traffic jams,"
+  },
+  {
+    "hanzi": "尤其是",
+    "pinyin": "yóuqí shì",
+    "translation": "especially"
+  },
+  {
+    "hanzi": "下班高峰期。",
+    "pinyin": "xià bān gāofēng qī。",
+    "translation": "during rush hour after work."
+  },
+  {
+    "hanzi": "\n",
+    "pinyin": "",
+    "translation": ""
+  },
+  {
+    "hanzi": "A：",
+    "pinyin": "A：",
+    "translation": "A:"
+  },
+  {
+    "hanzi": "是啊，",
+    "pinyin": "shì a，",
+    "translation": "yeah,"
+  },
+  {
+    "hanzi": "北京的交通",
+    "pinyin": "Běijīng de jiāotōng",
+    "translation": "Beijing's traffic"
+  },
+  {
+    "hanzi": "真的很复杂。",
+    "pinyin": "zhēn de hěn fùzá。",
+    "translation": "is really very complicated."
+  },
+  {
+    "hanzi": "对了，",
+    "pinyin": "duì le，",
+    "translation": "by the way,"
+  },
+  {
+    "hanzi": "我可以",
+    "pinyin": "wǒ kěyǐ",
+    "translation": "can I"
+  },
+  {
+    "hanzi": "打开车窗吗？",
+    "pinyin": "dǎkāi chēchuāng ma？",
+    "translation": "open the car window?"
+  },
+  {
+    "hanzi": "有点热。",
+    "pinyin": "yǒudiǎn rè。",
+    "translation": "it's a bit hot."
+  },
+  {
+    "hanzi": "\n",
+    "pinyin": "",
+    "translation": ""
+  },
+  {
+    "hanzi": "B：",
+    "pinyin": "B：",
+    "translation": "B:"
+  },
+  {
+    "hanzi": "当然可以，",
+    "pinyin": "dāngrán kěyǐ，",
+    "translation": "of course you can,"
+  },
+  {
+    "hanzi": "你随便。",
+    "pinyin": "nǐ suíbiàn。",
+    "translation": "feel free."
+  },
+  {
+    "hanzi": "空调",
+    "pinyin": "kōngtiáo",
+    "translation": "the air conditioning"
+  },
+  {
+    "hanzi": "也可以调一下，",
+    "pinyin": "yě kěyǐ tiáo yīxià，",
+    "translation": "can also be adjusted,"
+  },
+  {
+    "hanzi": "你自己来。",
+    "pinyin": "nǐ zìjǐ lái。",
+    "translation": "do it yourself."
+  },
+  {
+    "hanzi": "\n",
+    "pinyin": "",
+    "translation": ""
+  },
+  {
+    "hanzi": "A：",
+    "pinyin": "A：",
+    "translation": "A:"
+  },
+  {
+    "hanzi": "谢谢师傅。",
+    "pinyin": "xièxie shīfu。",
+    "translation": "thank you, driver."
+  },
+  {
+    "hanzi": "到了之后",
+    "pinyin": "dào le zhīhòu",
+    "translation": "after we arrive"
+  },
+  {
+    "hanzi": "我用支付宝",
+    "pinyin": "wǒ yòng Zhīfùbǎo",
+    "translation": "I'll pay with Alipay"
+  },
+  {
+    "hanzi": "付款",
+    "pinyin": "fùkuǎn",
+    "translation": "make the payment"
+  },
+  {
+    "hanzi": "可以吗？",
+    "pinyin": "kěyǐ ma？",
+    "translation": "is that okay?"
+  },
+  {
+    "hanzi": "\n",
+    "pinyin": "",
+    "translation": ""
+  },
+  {
+    "hanzi": "B：",
+    "pinyin": "B：",
+    "translation": "B:"
+  },
+  {
+    "hanzi": "可以的，",
+    "pinyin": "kěyǐ de，",
+    "translation": "yes, that's fine,"
+  },
+  {
+    "hanzi": "支付宝、",
+    "pinyin": "Zhīfùbǎo、",
+    "translation": "Alipay,"
+  },
+  {
+    "hanzi": "微信",
+    "pinyin": "Wēixìn",
+    "translation": "WeChat"
+  },
+  {
+    "hanzi": "都行。",
+    "pinyin": "dōu xíng。",
+    "translation": "both work."
+  },
+  {
+    "hanzi": "\n",
+    "pinyin": "",
+    "translation": ""
+  },
+  {
+    "hanzi": "A：",
+    "pinyin": "A：",
+    "translation": "A:"
+  },
+  {
+    "hanzi": "好的，",
+    "pinyin": "hǎo de，",
+    "translation": "okay,"
+  },
+  {
+    "hanzi": "太方便了。",
+    "pinyin": "tài fāngbiàn le。",
+    "translation": "that's so convenient."
+  },
+  {
+    "hanzi": "\n",
+    "pinyin": "",
+    "translation": ""
+  },
+  {
+    "hanzi": "B：",
+    "pinyin": "B：",
+    "translation": "B:"
+  },
+  {
+    "hanzi": "到了，",
+    "pinyin": "dào le，",
+    "translation": "we're here,"
+  },
+  {
+    "hanzi": "国贸地铁站到了。",
+    "pinyin": "Guómào dìtiě zhàn dào le。",
+    "translation": "we've arrived at Guomao subway station."
+  },
+  {
+    "hanzi": "请拿好",
+    "pinyin": "qǐng ná hǎo",
+    "translation": "please take"
+  },
+  {
+    "hanzi": "你的东西。",
+    "pinyin": "nǐ de dōngxi。",
+    "translation": "your belongings."
+  },
+  {
+    "hanzi": "\n",
+    "pinyin": "",
+    "translation": ""
+  },
+  {
+    "hanzi": "A：",
+    "pinyin": "A：",
+    "translation": "A:"
+  },
+  {
+    "hanzi": "谢谢师傅，",
+    "pinyin": "xièxie shīfu，",
+    "translation": "thank you, driver,"
+  },
+  {
+    "hanzi": "辛苦了！",
+    "pinyin": "xīnkǔ le！",
+    "translation": "you've worked hard!"
+  },
+  {
+    "hanzi": "\n",
+    "pinyin": "",
+    "translation": ""
+  },
+  {
+    "hanzi": "B：",
+    "pinyin": "B：",
+    "translation": "B:"
+  },
+  {
+    "hanzi": "不客气，",
+    "pinyin": "bù kèqi，",
+    "translation": "you're welcome,"
+  },
+  {
+    "hanzi": "祝你",
+    "pinyin": "zhù nǐ",
+    "translation": "I wish you"
+  },
+  {
+    "hanzi": "一切顺利！",
+    "pinyin": "yīqiè shùnlì！",
+    "translation": "all the best!"
+  }
+]
