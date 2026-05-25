@@ -84,6 +84,14 @@ def render(scenario_name, words, show_pinyin, show_translation):
   .popup-status.saved {{ color: #4caf50; }}
   .popup-status.exists {{ color: #e07b00; }}
   .popup-status.error {{ color: #e53935; }}
+  .add-bar {{ position: fixed; bottom: 24px; right: 24px; display: flex; align-items: center; gap: 8px; background: white; border: 1px solid #ddd; border-radius: 12px; padding: 10px 14px; box-shadow: 0 4px 16px rgba(0,0,0,0.12); }}
+  .add-bar input {{ font-size: 18px; border: none; outline: none; width: 120px; background: transparent; }}
+  .add-bar button {{ font-size: 13px; padding: 4px 10px; border-radius: 6px; border: 1px solid #ccc; background: #f5f5f5; cursor: pointer; }}
+  .add-bar button:disabled {{ opacity: 0.5; cursor: default; }}
+  .add-status {{ font-size: 12px; color: #888; }}
+  .add-status.saved {{ color: #2a9d2a; }}
+  .add-status.exists {{ color: #888; }}
+  .add-status.err {{ color: #c0392b; }}
 </style>
 </head>
 <body>
@@ -120,6 +128,11 @@ def render(scenario_name, words, show_pinyin, show_translation):
 <div class="text">
 {cards_html}
 </div>
+</div>
+<div class="add-bar">
+  <input id="add-input" type="text" placeholder="汉字…" autocomplete="off">
+  <button id="add-btn">Add</button>
+  <span class="add-status" id="add-status"></span>
 </div>
 <script>
   const text = document.querySelector('.text');
@@ -188,6 +201,48 @@ def render(scenario_name, words, show_pinyin, show_translation):
     }}
     popupSave.textContent = '＋ Save word';
   }});
+
+  const addInput = document.getElementById('add-input');
+  const addBtn = document.getElementById('add-btn');
+  const addStatus = document.getElementById('add-status');
+
+  async function addWord() {{
+    const hanzi = addInput.value.trim();
+    if (!hanzi) return;
+    addBtn.disabled = true;
+    addBtn.textContent = 'Adding…';
+    addStatus.textContent = '';
+    addStatus.className = 'add-status';
+    try {{
+      const res = await fetch('/api/add-word', {{
+        method: 'POST',
+        headers: {{'Content-Type': 'application/json'}},
+        body: JSON.stringify({{hanzi}})
+      }});
+      const data = await res.json();
+      if (data.status === 'added') {{
+        addStatus.textContent = 'Saved!';
+        addStatus.classList.add('saved');
+        addInput.value = '';
+        setTimeout(() => {{ addStatus.textContent = ''; addStatus.className = 'add-status'; }}, 2000);
+      }} else if (data.status === 'exists') {{
+        addStatus.textContent = 'Already saved';
+        addStatus.classList.add('exists');
+      }} else {{
+        addStatus.textContent = data.message || 'Error';
+        addStatus.classList.add('err');
+      }}
+    }} catch(e) {{
+      addStatus.textContent = 'Error';
+      addStatus.classList.add('err');
+    }} finally {{
+      addBtn.disabled = false;
+      addBtn.textContent = 'Add';
+    }}
+  }}
+
+  addBtn.addEventListener('click', addWord);
+  addInput.addEventListener('keydown', e => {{ if (e.key === 'Enter') addWord(); }});
 </script>
 </body>
 </html>"""
