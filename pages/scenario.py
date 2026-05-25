@@ -46,8 +46,11 @@ def render(scenario_name, words, show_pinyin, show_translation):
 <style>
   * {{ box-sizing: border-box; margin: 0; padding: 0; }}
   body {{ font-family: sans-serif; background: #f5f5f5; padding: 24px; line-height: 1; width: 100%; }}
-  .container {{ max-width: 800px; margin: 0 auto; }}
-  header {{ display: flex; align-items: center; gap: 16px; flex-wrap: wrap; margin-bottom: 32px; }}
+  .container {{ max-width: 800px; margin: 0 auto; display: flex; display: flex;
+    flex-direction: column;
+    gap: 20px;
+    padding: 20px 0px; }}
+  header {{ display: flex; align-items: center; gap: 16px; flex-wrap: wrap; }}
   header a {{ font-size: 14px; color: #555; text-decoration: none; }}
   header a:hover {{ color: #111; }}
   select {{ font-size: 14px; padding: 6px 10px; border-radius: 6px; border: 1px solid #ccc; }}
@@ -99,9 +102,9 @@ def render(scenario_name, words, show_pinyin, show_translation):
       <input type="checkbox" id="toggle-translation" {trans_checked}> Translation
     </label>
   </div>
-  <audio controls src="/transcription-audio/{scenario_name}.m4a"></audio>
   <a href="/words">Words →</a>
 </header>
+<audio controls src="/transcription-audio/{scenario_name}.m4a"></audio>
 <div class="popup-overlay" id="overlay">
   <div class="popup">
     <div class="popup-hanzi" id="popup-hanzi"></div>
