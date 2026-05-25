@@ -60,16 +60,16 @@ def render(scenario_name, words, show_pinyin, show_translation):
     display: inline-flex;
     flex-direction: column;
     align-items: center;
-    margin: 0 3px 8px;
+    margin: 0 2px 18px;
     vertical-align: bottom;
+    cursor: pointer;
   }}
-  .hanzi {{ font-size: 28px; font-weight: bold; color: #111; }}
+  .hanzi {{ font-size: 28px; font-weight: bold; color: #111; border-bottom: 2px solid #ddd; }}
+  .word:hover .hanzi {{ border-color: #888; }}
   .pinyin {{ display: none; font-size: 12px; color: #e07b00; margin-bottom: 2px; }}
-  .translation {{ display: none; font-size: 11px; color: #888; margin-top: 2px; white-space: nowrap; }}
+  .translation {{ display: none; font-size: 11px; color: #888; margin-top: 4px; white-space: nowrap; }}
   .show-pinyin .pinyin {{ display: block; }}
   .show-translation .translation {{ display: block; }}
-  .word {{ cursor: pointer; border: 1px solid #ddd; border-radius: 6px; padding: 4px 6px; background: white; }}
-  .word:hover {{ border-color: #bbb; background: #fafafa; }}
   .popup-overlay {{ display: none; position: fixed; inset: 0; background: rgba(0,0,0,0.3); z-index: 100; }}
   .popup-overlay.open {{ display: flex; align-items: center; justify-content: center; }}
   .popup {{ background: white; border-radius: 12px; padding: 28px 36px; text-align: center; box-shadow: 0 8px 32px rgba(0,0,0,0.18); min-width: 200px; }}

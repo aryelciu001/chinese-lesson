@@ -25,7 +25,7 @@ Parse a scenario `.md` file from the `/scenarios` folder and extract every meani
 - Write the JSON output to `/scenarios-parsed/<filename>.json` (same base name as the input)
 - handle newline (\n) by setting hanzi as "\n"
 - also handle sentence-ending punctuation (。！？……；) as separate tokens with hanzi set to the punctuation character, pinyin and translation as "" — these drive TTS pauses
-- skip all other punctuation (，、：（）""'' etc.) — do not include them
+- keep all other characters as tokens too: speaker labels (A, B, 马经理, 小林, etc.), colons (：), Latin letters, numbers — do not skip anything
 - **Write the JSON via a Python heredoc** (never the Write tool, never inline `-c`). Use `python3 - << 'PYEOF' ... PYEOF` so the shell never interprets the content. Build the token list as a Python list of dicts and use `json.dump(..., ensure_ascii=False)` to write the file. Avoid apostrophes in translation strings — use "not" instead of "don't", "cannot" instead of "can't", etc.
 - After writing the JSON, run via Bash: `python3 play.py scenarios-parsed/<filename>.json -o audio/<filename>.m4a` (create `/audio/` dir if needed)
 
