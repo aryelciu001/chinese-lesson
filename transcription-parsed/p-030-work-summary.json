@@ -1,0 +1,462 @@
+[
+  {
+    "hanzi": "我们",
+    "pinyin": "wǒmen",
+    "translation": "we"
+  },
+  {
+    "hanzi": "今年",
+    "pinyin": "jīnnián",
+    "translation": "this year"
+  },
+  {
+    "hanzi": "的",
+    "pinyin": "de",
+    "translation": "(possessive particle)"
+  },
+  {
+    "hanzi": "工作",
+    "pinyin": "gōngzuò",
+    "translation": "work"
+  },
+  {
+    "hanzi": "都",
+    "pinyin": "dōu",
+    "translation": "all"
+  },
+  {
+    "hanzi": "已经",
+    "pinyin": "yǐjīng",
+    "translation": "already"
+  },
+  {
+    "hanzi": "按照",
+    "pinyin": "ànzhào",
+    "translation": "according to"
+  },
+  {
+    "hanzi": "计划",
+    "pinyin": "jìhuà",
+    "translation": "plan"
+  },
+  {
+    "hanzi": "完成",
+    "pinyin": "wánchéng",
+    "translation": "complete/finish"
+  },
+  {
+    "hanzi": "了。",
+    "pinyin": "le。",
+    "translation": "(completed action)."
+  },
+  {
+    "hanzi": "这",
+    "pinyin": "zhè",
+    "translation": "this"
+  },
+  {
+    "hanzi": "一段",
+    "pinyin": "yī duàn",
+    "translation": "a period of"
+  },
+  {
+    "hanzi": "时间",
+    "pinyin": "shíjiān",
+    "translation": "time"
+  },
+  {
+    "hanzi": "，",
+    "pinyin": "，",
+    "translation": ","
+  },
+  {
+    "hanzi": "尽管",
+    "pinyin": "jǐnguǎn",
+    "translation": "although/even though"
+  },
+  {
+    "hanzi": "工作",
+    "pinyin": "gōngzuò",
+    "translation": "work"
+  },
+  {
+    "hanzi": "很",
+    "pinyin": "hěn",
+    "translation": "very"
+  },
+  {
+    "hanzi": "紧张",
+    "pinyin": "jǐnzhāng",
+    "translation": "stressful/tense"
+  },
+  {
+    "hanzi": "，",
+    "pinyin": "，",
+    "translation": ","
+  },
+  {
+    "hanzi": "中间",
+    "pinyin": "zhōngjiān",
+    "translation": "in the middle/along the way"
+  },
+  {
+    "hanzi": "也",
+    "pinyin": "yě",
+    "translation": "also"
+  },
+  {
+    "hanzi": "遇到",
+    "pinyin": "yùdào",
+    "translation": "encounter"
+  },
+  {
+    "hanzi": "了",
+    "pinyin": "le",
+    "translation": "(completed action)"
+  },
+  {
+    "hanzi": "很多",
+    "pinyin": "hěn duō",
+    "translation": "many/a lot of"
+  },
+  {
+    "hanzi": "困难",
+    "pinyin": "kùnnán",
+    "translation": "difficulties"
+  },
+  {
+    "hanzi": "，",
+    "pinyin": "，",
+    "translation": ","
+  },
+  {
+    "hanzi": "但是",
+    "pinyin": "dànshì",
+    "translation": "but/however"
+  },
+  {
+    "hanzi": "因为",
+    "pinyin": "yīnwèi",
+    "translation": "because"
+  },
+  {
+    "hanzi": "有",
+    "pinyin": "yǒu",
+    "translation": "there is/have"
+  },
+  {
+    "hanzi": "大家",
+    "pinyin": "dàjiā",
+    "translation": "everyone"
+  },
+  {
+    "hanzi": "的",
+    "pinyin": "de",
+    "translation": "(possessive particle)"
+  },
+  {
+    "hanzi": "努力",
+    "pinyin": "nǔlì",
+    "translation": "effort"
+  },
+  {
+    "hanzi": "，",
+    "pinyin": "，",
+    "translation": ","
+  },
+  {
+    "hanzi": "我们",
+    "pinyin": "wǒmen",
+    "translation": "we"
+  },
+  {
+    "hanzi": "成功地",
+    "pinyin": "chénggōng de",
+    "translation": "successfully"
+  },
+  {
+    "hanzi": "解决",
+    "pinyin": "jiějué",
+    "translation": "resolve/solve"
+  },
+  {
+    "hanzi": "了",
+    "pinyin": "le",
+    "translation": "(completed action)"
+  },
+  {
+    "hanzi": "问题",
+    "pinyin": "wèntí",
+    "translation": "problem"
+  },
+  {
+    "hanzi": "，",
+    "pinyin": "，",
+    "translation": ","
+  },
+  {
+    "hanzi": "顺利地",
+    "pinyin": "shùnlì de",
+    "translation": "smoothly"
+  },
+  {
+    "hanzi": "完成",
+    "pinyin": "wánchéng",
+    "translation": "complete/finish"
+  },
+  {
+    "hanzi": "了",
+    "pinyin": "le",
+    "translation": "(completed action)"
+  },
+  {
+    "hanzi": "工作",
+    "pinyin": "gōngzuò",
+    "translation": "work"
+  },
+  {
+    "hanzi": "，",
+    "pinyin": "，",
+    "translation": ","
+  },
+  {
+    "hanzi": "非常",
+    "pinyin": "fēicháng",
+    "translation": "very/extremely"
+  },
+  {
+    "hanzi": "感谢",
+    "pinyin": "gǎnxiè",
+    "translation": "thank/grateful"
+  },
+  {
+    "hanzi": "大家",
+    "pinyin": "dàjiā",
+    "translation": "everyone"
+  },
+  {
+    "hanzi": "对",
+    "pinyin": "duì",
+    "translation": "to/towards"
+  },
+  {
+    "hanzi": "我",
+    "pinyin": "wǒ",
+    "translation": "me"
+  },
+  {
+    "hanzi": "的",
+    "pinyin": "de",
+    "translation": "(possessive particle)"
+  },
+  {
+    "hanzi": "帮助！",
+    "pinyin": "bāngzhù！",
+    "translation": "help!"
+  },
+  {
+    "hanzi": "另外",
+    "pinyin": "lìngwài",
+    "translation": "in addition/furthermore"
+  },
+  {
+    "hanzi": "，",
+    "pinyin": "，",
+    "translation": ","
+  },
+  {
+    "hanzi": "马经理",
+    "pinyin": "Mǎ jīnglǐ",
+    "translation": "Manager Ma"
+  },
+  {
+    "hanzi": "让",
+    "pinyin": "ràng",
+    "translation": "ask/have (someone do something)"
+  },
+  {
+    "hanzi": "我",
+    "pinyin": "wǒ",
+    "translation": "me"
+  },
+  {
+    "hanzi": "告诉",
+    "pinyin": "gàosù",
+    "translation": "tell"
+  },
+  {
+    "hanzi": "大家",
+    "pinyin": "dàjiā",
+    "translation": "everyone"
+  },
+  {
+    "hanzi": "一个",
+    "pinyin": "yī ge",
+    "translation": "one (measure word)"
+  },
+  {
+    "hanzi": "好",
+    "pinyin": "hǎo",
+    "translation": "good"
+  },
+  {
+    "hanzi": "消息",
+    "pinyin": "xiāoxi",
+    "translation": "news"
+  },
+  {
+    "hanzi": "，",
+    "pinyin": "，",
+    "translation": ","
+  },
+  {
+    "hanzi": "因为",
+    "pinyin": "yīnwèi",
+    "translation": "because"
+  },
+  {
+    "hanzi": "大家",
+    "pinyin": "dàjiā",
+    "translation": "everyone"
+  },
+  {
+    "hanzi": "按时",
+    "pinyin": "àn shí",
+    "translation": "on time"
+  },
+  {
+    "hanzi": "完成",
+    "pinyin": "wánchéng",
+    "translation": "complete/finish"
+  },
+  {
+    "hanzi": "了",
+    "pinyin": "le",
+    "translation": "(completed action)"
+  },
+  {
+    "hanzi": "工作",
+    "pinyin": "gōngzuò",
+    "translation": "work"
+  },
+  {
+    "hanzi": "，",
+    "pinyin": "，",
+    "translation": ","
+  },
+  {
+    "hanzi": "公司",
+    "pinyin": "gōngsī",
+    "translation": "company"
+  },
+  {
+    "hanzi": "决定",
+    "pinyin": "juédìng",
+    "translation": "decide"
+  },
+  {
+    "hanzi": "这个月",
+    "pinyin": "zhège yuè",
+    "translation": "this month"
+  },
+  {
+    "hanzi": "给",
+    "pinyin": "gěi",
+    "translation": "give"
+  },
+  {
+    "hanzi": "每人",
+    "pinyin": "měi rén",
+    "translation": "each person"
+  },
+  {
+    "hanzi": "多发",
+    "pinyin": "duō fā",
+    "translation": "additionally issue/give extra"
+  },
+  {
+    "hanzi": "三千元",
+    "pinyin": "sān qiān yuán",
+    "translation": "three thousand yuan"
+  },
+  {
+    "hanzi": "奖金。",
+    "pinyin": "jiǎngjīn。",
+    "translation": "bonus."
+  },
+  {
+    "hanzi": "感谢",
+    "pinyin": "gǎnxiè",
+    "translation": "thank/grateful"
+  },
+  {
+    "hanzi": "大家",
+    "pinyin": "dàjiā",
+    "translation": "everyone"
+  },
+  {
+    "hanzi": "这",
+    "pinyin": "zhè",
+    "translation": "this"
+  },
+  {
+    "hanzi": "三个多月",
+    "pinyin": "sān ge duō yuè",
+    "translation": "more than three months"
+  },
+  {
+    "hanzi": "的",
+    "pinyin": "de",
+    "translation": "(possessive particle)"
+  },
+  {
+    "hanzi": "努力",
+    "pinyin": "nǔlì",
+    "translation": "hard/diligent"
+  },
+  {
+    "hanzi": "工作",
+    "pinyin": "gōngzuò",
+    "translation": "work"
+  },
+  {
+    "hanzi": "，",
+    "pinyin": "，",
+    "translation": ","
+  },
+  {
+    "hanzi": "希望",
+    "pinyin": "xīwàng",
+    "translation": "hope"
+  },
+  {
+    "hanzi": "明年",
+    "pinyin": "míngnián",
+    "translation": "next year"
+  },
+  {
+    "hanzi": "能",
+    "pinyin": "néng",
+    "translation": "can/be able to"
+  },
+  {
+    "hanzi": "有",
+    "pinyin": "yǒu",
+    "translation": "have"
+  },
+  {
+    "hanzi": "更大",
+    "pinyin": "gèng dà",
+    "translation": "even greater"
+  },
+  {
+    "hanzi": "的",
+    "pinyin": "de",
+    "translation": "(possessive particle)"
+  },
+  {
+    "hanzi": "成绩！",
+    "pinyin": "chéngjì！",
+    "translation": "achievements/results!"
+  }
+]
