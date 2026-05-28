@@ -1,0 +1,90 @@
+售货员：|shòuhuòyuán：|Salesperson:
+小姐|xiǎojiě|miss/young lady
+，|，|,
+您好！|nín hǎo！|hello!
+您|nín|you (polite)
+想|xiǎng|want to
+买|mǎi|buy
+什么|shénme|what
+家具？|jiājù？|furniture?
+需要|xūyào|need
+我|wǒ|me/I
+为|wèi|for
+您|nín|you (polite)
+介绍|jièshào|introduce/show
+一下|yīxià|a bit
+吗？|ma？|(question particle)?
+<newline>
+王静：|Wáng Jìng：|Wang Jing:
+谢谢|xièxie|thank you
+，|，|,
+我|wǒ|I
+想|xiǎng|want to
+买|mǎi|buy
+沙发。|shāfā。|sofa.
+<newline>
+售货员：|shòuhuòyuán：|Salesperson:
+您|nín|you (polite)
+看|kàn|look at
+这个|zhège|this
+沙发|shāfā|sofa
+怎么样？|zěnmeyàng？|how about it?/what do you think?
+现在|xiànzài|now
+正在|zhèngzài|currently (in progress)
+打折|dǎzhé|on sale/discounted
+，|，|,
+比|bǐ|compared to
+平时|píngshí|usual/normal times
+便宜|piányí|cheap/inexpensive
+了|le|(change of state particle)
+一千块。|yī qiān kuài。|one thousand yuan.
+<newline>
+王静：|Wáng Jìng：|Wang Jing:
+价格|jiàgé|price
+还可以|hái kěyǐ|acceptable/not bad
+，|，|,
+就是|jiùshì|it's just that
+不知道|bù zhīdào|don't know
+质量|zhìliàng|quality
+有没有|yǒu méiyǒu|whether there is
+保证。|bǎozhèng。|guarantee.
+<newline>
+售货员：|shòuhuòyuán：|Salesperson:
+您|nín|you (polite)
+放心|fàngxīn|rest assured
+，|，|,
+质量|zhìliàng|quality
+肯定|kěndìng|definitely/certainly
+不|bù|not
+"打折"|"dǎzhé"|"discounted" (figurative: compromised)
+，|，|,
+这种|zhè zhǒng|this type/kind of
+沙发|shāfā|sofa
+是|shì|is
+今年|jīnnián|this year
+最|zuì|most
+流行|liúxíng|popular/trendy
+的。|de。|(assertion particle).
+有|yǒu|there are
+很多|hěn duō|many
+种|zhǒng|kinds/types
+颜色|yánsè|colors
+可以|kěyǐ|can/may
+选择|xuǎnzé|choose
+，|，|,
+您|nín|you (polite)
+可以|kěyǐ|can
+看|kàn|look
+一下。|yīxià。|a bit/take a look.
+<newline>
+王静：|Wáng Jìng：|Wang Jing:
+这个|zhège|this
+蓝色|lánsè|blue
+的|de|(attributive particle)
+看上去|kàn shàng qù|looks/appears
+不错|búcuò|not bad/good
+，|，|,
+就|jiù|then/just
+要|yào|want/take
+这个|zhège|this one
+吧。|ba。|(suggestion particle).
