@@ -123,7 +123,8 @@ class Handler(BaseHTTPRequestHandler):
             return
 
         if parsed.path == "/words":
-            self._send_html(words_page.render(db.load_words()))
+            page = int(qs.get("page", ["1"])[0])
+            self._send_html(words_page.render(db.load_words(), page=page))
             return
 
         if parsed.path == "/flashcards":

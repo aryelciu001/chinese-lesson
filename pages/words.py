@@ -1,4 +1,11 @@
-def render(words):
+def render(words, page=1):
+    PAGE_SIZE = 20
+    total = len(words)
+    total_pages = max(1, (total + PAGE_SIZE - 1) // PAGE_SIZE)
+    page = max(1, min(page, total_pages))
+    start = (page - 1) * PAGE_SIZE
+    words = words[start:start + PAGE_SIZE]
+
     cards = ""
     for w in words:
         examples_html = "".join(
@@ -21,6 +28,13 @@ def render(words):
   </div>
   <ol class="examples">{examples_html}</ol>
 </div>"""
+
+    prev_class = "disabled" if page <= 1 else ""
+    next_class = "disabled" if page >= total_pages else ""
+    page_btns = "".join(
+        f'<a href="/words?page={p}" class="page-btn{"  active" if p == page else ""}">{p}</a>'
+        for p in range(1, total_pages + 1)
+    )
 
     return f"""<!DOCTYPE html>
 <html lang="zh">
@@ -60,6 +74,14 @@ def render(words):
   .add-status.saved {{ color: #2a9d2a; }}
   .add-status.exists {{ color: #888; }}
   .add-status.err {{ color: #c0392b; }}
+  .pagination {{ display: flex; align-items: center; justify-content: center; gap: 8px; margin-bottom: 24px; flex-wrap: wrap; }}
+  .pagination a {{ font-size: 14px; color: #555; text-decoration: none; padding: 6px 14px; border: 1px solid #ddd; border-radius: 6px; background: white; }}
+  .pagination a:hover {{ background: #f0f0f0; color: #111; }}
+  .pagination a.disabled {{ pointer-events: none; color: #ccc; border-color: #eee; }}
+  .pagination span {{ font-size: 14px; color: #555; }}
+  .page-btn {{ font-size: 13px; color: #555; text-decoration: none; padding: 5px 10px; border: 1px solid #ddd; border-radius: 6px; background: white; cursor: pointer; }}
+  .page-btn:hover {{ background: #f0f0f0; color: #111; }}
+  .page-btn.active {{ background: #111; color: white; border-color: #111; pointer-events: none; }}
 </style>
 </head>
 <body>
@@ -69,6 +91,11 @@ def render(words):
   <h1>Words</h1>
   <a href="/flashcards">Flashcards →</a>
 </header>
+<div class="pagination">
+  <a href="/words?page={page - 1}" class="{prev_class}">← Prev</a>
+  {page_btns}
+  <a href="/words?page={page + 1}" class="{next_class}">Next →</a>
+</div>
 <div class="grid">
 {cards}
 </div>
